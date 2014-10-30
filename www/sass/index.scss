@@ -1,0 +1,13 @@
+@import "compass";
+
+.left{
+	@include transform(translate3D(-100% , 0, 0));
+}
+
+.center{
+	@include transform(translate3D(0% , 0, 0));
+}
+
+.right{
+	@include transform(translate3D(+100% , 0, 0));
+}

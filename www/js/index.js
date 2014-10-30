@@ -1,7 +1,7 @@
 var greenfeed = angular.module("greenfeed", ["signinPage","mainPage"]);
 
-greenfeed.controller("mainController", function(){
-    $scope.page="0";
+greenfeed.controller("mainController", function ($scope){
+    $scope.page=0;
 });
 
 

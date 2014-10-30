@@ -9,7 +9,9 @@ app.directive('signinPage', function(){
 	};
 });
 
-app.controller("signPageController", function(){
+app.controller("signPageController", ["$scope", function ($scope){
+	this.sign = function(){
+		$scope.page=1;
+	};
 
-
-});
+}]);

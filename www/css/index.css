@@ -1,0 +1,26 @@
+/* line 3, ../sass/index.scss */
+.left {
+  -webkit-transform: translate3D(-100%, 0, 0);
+  -moz-transform: translate3D(-100%, 0, 0);
+  -ms-transform: translate3D(-100%, 0, 0);
+  -o-transform: translate3D(-100%, 0, 0);
+  transform: translate3D(-100%, 0, 0);
+}
+
+/* line 7, ../sass/index.scss */
+.center {
+  -webkit-transform: translate3D(0%, 0, 0);
+  -moz-transform: translate3D(0%, 0, 0);
+  -ms-transform: translate3D(0%, 0, 0);
+  -o-transform: translate3D(0%, 0, 0);
+  transform: translate3D(0%, 0, 0);
+}
+
+/* line 11, ../sass/index.scss */
+.right {
+  -webkit-transform: translate3D(100%, 0, 0);
+  -moz-transform: translate3D(100%, 0, 0);
+  -ms-transform: translate3D(100%, 0, 0);
+  -o-transform: translate3D(100%, 0, 0);
+  transform: translate3D(100%, 0, 0);
+}
