@@ -1,0 +1,27 @@
+@import "compass";
+
+div.verticalMenu{
+	position: absolute;
+	top:0;
+	bottom:0;
+	right:75%;
+	left:0;
+	background-color: #5f259f;
+}
+
+div.smallLogo {
+	position: absolute;
+	top:2%;
+	left:2%;
+	right:70%;
+	bottom:87%;
+	text-align: center;
+}
+
+div.connected{
+	position: absolute;
+	top:20%;
+	font-size: 3vw;
+	color : white;
+	margin-left:1px;
+}
