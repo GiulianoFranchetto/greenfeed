@@ -1,14 +1,19 @@
 /* line 3, ../sass/menuBar.scss */
-div.verticalMenu {
+.verticalMenu {
+  background-color: #5f259f;
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 75%;
-  left: 0;
-  background-color: #5f259f;
+  left: 0%;
+  right: 180%;
+  z-index: 10;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
-/* line 12, ../sass/menuBar.scss */
+/* line 14, ../sass/menuBar.scss */
 div.smallLogo {
   position: absolute;
   top: 2%;
@@ -18,12 +23,12 @@ div.smallLogo {
   text-align: center;
 }
 
-/* line 21, ../sass/menuBar.scss */
+/* line 23, ../sass/menuBar.scss */
 div.connected {
   position: absolute;
   top: 20%;
   font-size: 3vw;
-  font-family: 'Calibri';
+  font-family: sans-serif;
   color: white;
   margin-left: 1px;
 }

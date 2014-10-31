@@ -3,12 +3,17 @@ div.history {
   position: absolute;
   top: 20%;
   bottom: 67%;
-  left: 25%;
+  left: 0%;
   right: 50%;
   background-color: #001489;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/* line 11, ../sass/history.scss */
-div.history img {
-  height: 100%;
-  width: 100%;
+/* line 14, ../sass/history.scss */
+div.history div {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-family: sans-serif;
 }

@@ -1,0 +1,15 @@
+/* line 1, ../sass/screen.scss */
+div.fake {
+  position: absolute;
+  top: 33%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+}
+
+/* line 10, ../sass/screen.scss */
+#fakemap {
+  height: 100%;
+  width: 100%;
+}

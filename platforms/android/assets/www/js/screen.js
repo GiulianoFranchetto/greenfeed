@@ -1,4 +1,4 @@
-var app = angular.module("screen",["screenAlert","screenMap","screenHistory"]);
+var app = angular.module("screen",/*["screenAlert","screenMap","screenHistory"]*/[]);
 
 app.directive('screen', function(){
 	return {

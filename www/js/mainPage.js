@@ -1,4 +1,4 @@
-var app = angular.module("mainPage",["menuBar","booking","tabs"]);
+var app = angular.module("mainPage",["booking","tabs","screen"]);
 
 app.directive('mainPage', function(){
 	return {

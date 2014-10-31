@@ -1,17 +1,17 @@
-/* line 3, ../sass/history.scss */
-div.history {
+/* line 3, ../sass/planning.scss */
+div.planning {
   position: absolute;
   top: 20%;
   bottom: 67%;
-  left: 0%;
-  right: 50%;
-  background-color: #001489;
+  left: 50%;
+  right: 0%;
+  background-color: #0051ff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* line 14, ../sass/history.scss */
-div.history div {
+/* line 14, ../sass/planning.scss */
+div.planning div {
   display: inline-block;
   text-align: center;
   color: #fff;

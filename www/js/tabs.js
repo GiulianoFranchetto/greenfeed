@@ -1,4 +1,4 @@
-var app = angular.module("tabs",["history","alert","map"]);
+var app = angular.module("tabs",["history","planning","map"]);
 
 app.directive('tabs', function(){
 	return {

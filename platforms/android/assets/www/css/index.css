@@ -44,3 +44,21 @@ html, body {
   -o-transform: translate3D(100%, 0, 0);
   transform: translate3D(100%, 0, 0);
 }
+
+/* line 27, ../sass/index.scss */
+.cache {
+  -webkit-transform: translate3D(100%, 0, 0);
+  -moz-transform: translate3D(100%, 0, 0);
+  -ms-transform: translate3D(100%, 0, 0);
+  -o-transform: translate3D(100%, 0, 0);
+  transform: translate3D(100%, 0, 0);
+}
+
+/* line 31, ../sass/index.scss */
+.affiche {
+  -webkit-transform: translate3D(0%, 0, 0);
+  -moz-transform: translate3D(0%, 0, 0);
+  -ms-transform: translate3D(0%, 0, 0);
+  -o-transform: translate3D(0%, 0, 0);
+  transform: translate3D(0%, 0, 0);
+}

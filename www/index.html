@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ng-app="greenfeed" ng-init="page=0">
+<html ng-app="greenfeed" ng-controller="mainController as mainCtrl" ng-init="page=0; titre=false">
     <head>
         <meta charset="utf-8" />
         <meta name="msapplication-tap-highlight" content="no" />
@@ -12,22 +12,26 @@
         <link rel="stylesheet" type="text/css" href="css/booking.css" />
         <link rel="stylesheet" type="text/css" href="css/history.css" />
         <link rel="stylesheet" type="text/css" href="css/tabs.css" />
-        <link rel="stylesheet" type="text/css" href="css/alert.css" />
+        <link rel="stylesheet" type="text/css" href="css/planning.css" />
+        <link rel="stylesheet" type="text/css" href="css/screen.css" />
         <link rel="stylesheet" type="text/css" href="css/map.css" />
+        <link rel="stylesheet" type="text/css" href="css/mainPage.css" />
     </head>
     <body>
 
-        <signin-page class="panel" ng-class="{center: page==0, right: page > 0}"></signin-page>
-
-        <main-page class="panel left" ng-class="{center: page==1, left: page !=1}"></main-page>
+        <signin-page class="panel center"></signin-page>
+        <menu-bar class="verticalMenu cache" ng-class="{affiche: titre==1, cache: titre==0}"></menu-bar>
+        <main-page class="panel left" ng-class="{center: page==1, left: page !=1}" ng-swipe-right="setMenu(1)" ng-swipe-left="setMenu(0)"></main-page>
 
         <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/vendor/angular.js"></script>
+        <script type="text/javascript" src="js/vendor/angular-touch.js"></script>
         <script type="text/javascript" src="js/signinPage.js"></script>
         <script type="text/javascript" src="js/history.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
-        <script type="text/javascript" src="js/alert.js"></script>
+        <script type="text/javascript" src="js/planning.js"></script>
         <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript" src="js/screen.js"></script>
         <script type="text/javascript" src="js/booking.js"></script>
         <script type="text/javascript" src="js/menuBar.js"></script>
         <script type="text/javascript" src="js/mainPage.js"></script>

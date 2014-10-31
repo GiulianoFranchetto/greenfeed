@@ -1,7 +1,12 @@
-var greenfeed = angular.module("greenfeed", ["signinPage","mainPage"]);
+var greenfeed = angular.module("greenfeed", ["signinPage","mainPage","menuBar","ngTouch"]);
 
 greenfeed.controller("mainController", function ($scope){
     $scope.page=0;
+    $scope.titre=0;
+
+    $scope.setMenu = function(affiche) {
+        $scope.titre = affiche;
+    }
 });
 
 

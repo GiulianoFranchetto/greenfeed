@@ -1,12 +1,14 @@
 @import "compass";
 
-div.verticalMenu{
+.verticalMenu{
+	background-color: #5f259f;
 	position: absolute;
 	top:0;
 	bottom:0;
-	right:75%;
-	left:0;
-	background-color: #5f259f;
+	left:0%;
+	right:180%;
+	z-index: 10;
+	@include transition-duration(.4s);
 }
 
 div.smallLogo {
@@ -22,7 +24,7 @@ div.connected{
 	position: absolute;
 	top:20%;
 	font-size: 3vw;
-	font-family: 'Calibri';
+	font-family: sans-serif;
 	color : white;
 	margin-left:1px;
 }
