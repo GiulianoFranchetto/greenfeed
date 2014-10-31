@@ -1,0 +1,14 @@
+/* line 3, ../sass/history.scss */
+div.history {
+  position: absolute;
+  top: 20%;
+  bottom: 67%;
+  left: 25%;
+  right: 50%;
+  background-color: #001489;
+}
+/* line 11, ../sass/history.scss */
+div.history img {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,15 @@
+@import "compass";
+
+div.map{
+	position: absolute;
+	top:20%;
+	bottom:67%;
+	left:75%;
+	right:0%;
+	background-color: #5f259f;
+
+	img{
+		height: 100%;
+		width:100%;
+	}
+}

@@ -1,4 +1,24 @@
 /* line 3, ../sass/index.scss */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* line 9, ../sass/index.scss */
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* line 15, ../sass/index.scss */
 .left {
   -webkit-transform: translate3D(-100%, 0, 0);
   -moz-transform: translate3D(-100%, 0, 0);
@@ -7,7 +27,7 @@
   transform: translate3D(-100%, 0, 0);
 }
 
-/* line 7, ../sass/index.scss */
+/* line 19, ../sass/index.scss */
 .center {
   -webkit-transform: translate3D(0%, 0, 0);
   -moz-transform: translate3D(0%, 0, 0);
@@ -16,7 +36,7 @@
   transform: translate3D(0%, 0, 0);
 }
 
-/* line 11, ../sass/index.scss */
+/* line 23, ../sass/index.scss */
 .right {
   -webkit-transform: translate3D(100%, 0, 0);
   -moz-transform: translate3D(100%, 0, 0);

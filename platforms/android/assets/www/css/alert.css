@@ -1,0 +1,14 @@
+/* line 3, ../sass/alert.scss */
+div.alert {
+  position: absolute;
+  top: 20%;
+  bottom: 67%;
+  left: 50%;
+  right: 25%;
+  background-color: #000;
+}
+/* line 11, ../sass/alert.scss */
+div.alert img {
+  height: 100%;
+  width: 100%;
+}

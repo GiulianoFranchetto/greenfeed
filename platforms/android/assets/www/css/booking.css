@@ -1,0 +1,9 @@
+/* line 3, ../sass/booking.scss */
+div.booking {
+  position: absolute;
+  top: 0;
+  bottom: 80%;
+  left: 25%;
+  right: 0;
+  background-color: #33b9e5;
+}
