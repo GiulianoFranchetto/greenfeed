@@ -1,0 +1,53 @@
+\hypertarget{unioniot__push__data}{\section{iot\-\_\-push\-\_\-data Union Reference}
+\label{unioniot__push__data}\index{iot\-\_\-push\-\_\-data@{iot\-\_\-push\-\_\-data}}
+}
+
+
+To have more information about this structure, look at the \hyperlink{unioniot__pull__data}{iot\-\_\-pull\-\_\-data}.  
+
+
+
+
+{\ttfamily \#include \char`\"{}includes/iot\-\_\-push\-\_\-data.\-h\char`\"{}}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{unioniot__push__data_a019f7d47cfe35a4e91ae5068647c1014}{char {\bfseries msg} \mbox{[}\hyperlink{constants_8h_a786442238545011e2a0eb7ce468ad692}{I\-N\-C\-O\-M\-M\-I\-N\-G\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E}\mbox{]}}\label{unioniot__push__data_a019f7d47cfe35a4e91ae5068647c1014}
+
+\item 
+\hypertarget{unioniot__push__data_ada1ef82ba8bff8a33fbc1cd0c9b7ebe7}{\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\hypertarget{structiot__push__data_1_1@2_a4723ed0bc6ed806bf66757d25e40641a}{\>byte {\bfseries protocol\_version}\\
+\hypertarget{structiot__push__data_1_1@2_ada15cc4b0b6fe37df4be93e5260089e3}{\>byte {\bfseries token} \mbox{[}2\mbox{]}\\
+\hypertarget{structiot__push__data_1_1@2_a5c18bff3116d7e53219ea9d9060408ed}{\>byte {\bfseries push\_data\_id}\\
+\hypertarget{structiot__push__data_1_1@2_a7badc8040877155f12b7d17871dfe626}{\>byte {\bfseries MAC} \mbox{[}8\mbox{]}\\
+\hypertarget{structiot__push__data_1_1@2_a95fd1d801d35ecbda7a3a9b479d2d2f3}{\>char {\bfseries json} \mbox{[}\hyperlink{constants_8h_a786442238545011e2a0eb7ce468ad692}{INCOMMING\_MSG\_SIZE}-\/1-\/2-\/1-\/8\mbox{]}\\
+\}; }\label{unioniot__push__data_ada1ef82ba8bff8a33fbc1cd0c9b7ebe7}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+To have more information about this structure, look at the \hyperlink{unioniot__pull__data}{iot\-\_\-pull\-\_\-data}. 
+
+Here is a part of the documentation \paragraph*{3.\-2. P\-U\-S\-H\-\_\-\-D\-A\-T\-A packet}
+
+That packet type is used by the gateway mainly to forward the R\-F packets received, and associated metadata, to the server.
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Bytes }&{\bf Function  }\\\cline{1-2}
+\PBS\centering 0 &protocol version = 1 \\\cline{1-2}
+\PBS\centering 1-\/2 &random token \\\cline{1-2}
+\PBS\centering 3 &P\-U\-S\-H\-\_\-\-D\-A\-T\-A identifier 0x00 \\\cline{1-2}
+\PBS\centering 4-\/11 &Gateway unique identifier (M\-A\-C address) \\\cline{1-2}
+\PBS\centering 12-\/end &J\-S\-O\-N object, starting with \{, ending with \}, see section 4 \\\cline{1-2}
+\end{TabularC}
+
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+includes/\hyperlink{iot__push__data_8h}{iot\-\_\-push\-\_\-data.\-h}\end{DoxyCompactItemize}

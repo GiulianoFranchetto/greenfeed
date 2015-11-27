@@ -1,0 +1,106 @@
+\hypertarget{structdownstream__packet}{\section{downstream\-\_\-packet Struct Reference}
+\label{structdownstream__packet}\index{downstream\-\_\-packet@{downstream\-\_\-packet}}
+}
+
+
+This structure represents a package that must be sent to the Io\-T station to make it send a Lo\-Ra message Some of these fields are optional.  
+
+
+
+
+{\ttfamily \#include $<$includes/downstream\-\_\-packet.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structdownstream__packet_a2233496db347682f0b4005fe07310c58}{send\-\_\-now}
+\item 
+long \hyperlink{structdownstream__packet_ac5deed89768140dbc80dbc6529a5e14a}{timestamp}
+\item 
+char \hyperlink{structdownstream__packet_a7ba42be95635137cb867f08c8aa01f3b}{time} \mbox{[}35\mbox{]}
+\item 
+double \hyperlink{structdownstream__packet_a4c45cdff103e6644a620ba5061509f22}{frequency}
+\item 
+unsigned int \hyperlink{structdownstream__packet_a566a9646361d592aa0be3fe468b29aad}{rf\-\_\-channel}
+\item 
+unsigned int \hyperlink{structdownstream__packet_a59104ad6aeccc2a5011202486a11959f}{power}
+\item 
+char \hyperlink{structdownstream__packet_a167264916b5fad13dd3dc470128e3eef}{modulation} \mbox{[}5\mbox{]}
+\item 
+char \hyperlink{structdownstream__packet_a96f84d084cdf0e910c2482be0632fa97}{datarate} \mbox{[}15\mbox{]}
+\item 
+unsigned int \hyperlink{structdownstream__packet_ae4bd55e8e15052cb4ac21a9aba5866ad}{fsk\-\_\-datarate}
+\item 
+char \hyperlink{structdownstream__packet_a9bb17e8dc14670aedcd5b69e797d19d7}{code\-\_\-rate} \mbox{[}10\mbox{]}
+\item 
+unsigned int \hyperlink{structdownstream__packet_a3f5d6010dd5bdc3cedcb44caece43a59}{fsk\-\_\-deviation}
+\item 
+bool \hyperlink{structdownstream__packet_a17de42e009f605885975928f7dad2d0c}{i\-\_\-polarization}
+\item 
+unsigned int \hyperlink{structdownstream__packet_a4f552d54b9b164e0e8677ba5e591c84c}{rf\-\_\-preamble}
+\item 
+unsigned int \hyperlink{structdownstream__packet_a75b5ec600c45b3430f28b8bcf16d868a}{payload\-\_\-size}
+\item 
+char $\ast$ \hyperlink{structdownstream__packet_a91a70b77df95bd8b0830b49a094c2acb}{data}
+\item 
+bool \hyperlink{structdownstream__packet_af235dcb1657075c3d7f13390ee408eea}{disable\-\_\-\-C\-R\-C}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This structure represents a package that must be sent to the Io\-T station to make it send a Lo\-Ra message Some of these fields are optional. 
+
+\subsection{Field Documentation}
+\hypertarget{structdownstream__packet_a9bb17e8dc14670aedcd5b69e797d19d7}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!code\-\_\-rate@{code\-\_\-rate}}
+\index{code\-\_\-rate@{code\-\_\-rate}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{code\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}char code\-\_\-rate\mbox{[}10\mbox{]}}}\label{structdownstream__packet_a9bb17e8dc14670aedcd5b69e797d19d7}
+The code rate used to emit the packet, example 4/5 \hypertarget{structdownstream__packet_a91a70b77df95bd8b0830b49a094c2acb}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!data@{data}}
+\index{data@{data}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ data}}\label{structdownstream__packet_a91a70b77df95bd8b0830b49a094c2acb}
+The actual payload in base64 \hypertarget{structdownstream__packet_a96f84d084cdf0e910c2482be0632fa97}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!datarate@{datarate}}
+\index{datarate@{datarate}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{datarate}]{\setlength{\rightskip}{0pt plus 5cm}char datarate\mbox{[}15\mbox{]}}}\label{structdownstream__packet_a96f84d084cdf0e910c2482be0632fa97}
+The datarate used in case the L\-O\-R\-A modulation is chosen \hypertarget{structdownstream__packet_af235dcb1657075c3d7f13390ee408eea}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!disable\-\_\-\-C\-R\-C@{disable\-\_\-\-C\-R\-C}}
+\index{disable\-\_\-\-C\-R\-C@{disable\-\_\-\-C\-R\-C}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{disable\-\_\-\-C\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}bool disable\-\_\-\-C\-R\-C}}\label{structdownstream__packet_af235dcb1657075c3d7f13390ee408eea}
+If this field is set to true, the C\-R\-C check will be disabled (should always be set to false!) \hypertarget{structdownstream__packet_a4c45cdff103e6644a620ba5061509f22}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!frequency@{frequency}}
+\index{frequency@{frequency}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{frequency}]{\setlength{\rightskip}{0pt plus 5cm}double frequency}}\label{structdownstream__packet_a4c45cdff103e6644a620ba5061509f22}
+The central frequency used when the packet is emitted \hypertarget{structdownstream__packet_ae4bd55e8e15052cb4ac21a9aba5866ad}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!fsk\-\_\-datarate@{fsk\-\_\-datarate}}
+\index{fsk\-\_\-datarate@{fsk\-\_\-datarate}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{fsk\-\_\-datarate}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int fsk\-\_\-datarate}}\label{structdownstream__packet_ae4bd55e8e15052cb4ac21a9aba5866ad}
+The datarate used in case the F\-S\-K modulation is chosen \hypertarget{structdownstream__packet_a3f5d6010dd5bdc3cedcb44caece43a59}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!fsk\-\_\-deviation@{fsk\-\_\-deviation}}
+\index{fsk\-\_\-deviation@{fsk\-\_\-deviation}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{fsk\-\_\-deviation}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int fsk\-\_\-deviation}}\label{structdownstream__packet_a3f5d6010dd5bdc3cedcb44caece43a59}
+The F\-S\-K frequency deviation \hypertarget{structdownstream__packet_a17de42e009f605885975928f7dad2d0c}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!i\-\_\-polarization@{i\-\_\-polarization}}
+\index{i\-\_\-polarization@{i\-\_\-polarization}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{i\-\_\-polarization}]{\setlength{\rightskip}{0pt plus 5cm}bool i\-\_\-polarization}}\label{structdownstream__packet_a17de42e009f605885975928f7dad2d0c}
+If this field is set to true, the Lo\-Ra modulation polarization will be inversed \hypertarget{structdownstream__packet_a167264916b5fad13dd3dc470128e3eef}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!modulation@{modulation}}
+\index{modulation@{modulation}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{modulation}]{\setlength{\rightskip}{0pt plus 5cm}char modulation\mbox{[}5\mbox{]}}}\label{structdownstream__packet_a167264916b5fad13dd3dc470128e3eef}
+The Lo\-Ra modulation used\-: L\-O\-R\-A or F\-S\-K. Other values will be discarded \hypertarget{structdownstream__packet_a75b5ec600c45b3430f28b8bcf16d868a}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!payload\-\_\-size@{payload\-\_\-size}}
+\index{payload\-\_\-size@{payload\-\_\-size}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{payload\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int payload\-\_\-size}}\label{structdownstream__packet_a75b5ec600c45b3430f28b8bcf16d868a}
+The payload size in bytes \hypertarget{structdownstream__packet_a59104ad6aeccc2a5011202486a11959f}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!power@{power}}
+\index{power@{power}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{power}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int power}}\label{structdownstream__packet_a59104ad6aeccc2a5011202486a11959f}
+The power used by the antenna to emit the packet \hypertarget{structdownstream__packet_a566a9646361d592aa0be3fe468b29aad}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!rf\-\_\-channel@{rf\-\_\-channel}}
+\index{rf\-\_\-channel@{rf\-\_\-channel}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{rf\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int rf\-\_\-channel}}\label{structdownstream__packet_a566a9646361d592aa0be3fe468b29aad}
+The channel the Io\-T station will use to emit the packet \hypertarget{structdownstream__packet_a4f552d54b9b164e0e8677ba5e591c84c}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!rf\-\_\-preamble@{rf\-\_\-preamble}}
+\index{rf\-\_\-preamble@{rf\-\_\-preamble}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{rf\-\_\-preamble}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int rf\-\_\-preamble}}\label{structdownstream__packet_a4f552d54b9b164e0e8677ba5e591c84c}
+The R\-F preamble size \hypertarget{structdownstream__packet_a2233496db347682f0b4005fe07310c58}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!send\-\_\-now@{send\-\_\-now}}
+\index{send\-\_\-now@{send\-\_\-now}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{send\-\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}bool send\-\_\-now}}\label{structdownstream__packet_a2233496db347682f0b4005fe07310c58}
+If this field is equal to true, the packet will be sent by the Io\-T station immediately \hypertarget{structdownstream__packet_a7ba42be95635137cb867f08c8aa01f3b}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!time@{time}}
+\index{time@{time}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{time}]{\setlength{\rightskip}{0pt plus 5cm}char time\mbox{[}35\mbox{]}}}\label{structdownstream__packet_a7ba42be95635137cb867f08c8aa01f3b}
+Same use that the timestamp field. The representation of the date is different \hypertarget{structdownstream__packet_ac5deed89768140dbc80dbc6529a5e14a}{\index{downstream\-\_\-packet@{downstream\-\_\-packet}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!downstream_packet@{downstream\-\_\-packet}}
+\subsubsection[{timestamp}]{\setlength{\rightskip}{0pt plus 5cm}long timestamp}}\label{structdownstream__packet_ac5deed89768140dbc80dbc6529a5e14a}
+If the send\-\_\-now field is set to false, the packet will be sent when the current date of the Io\-T station reaches this value 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+includes/\hyperlink{downstream__packet_8h}{downstream\-\_\-packet.\-h}\end{DoxyCompactItemize}

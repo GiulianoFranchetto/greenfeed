@@ -1,0 +1,1 @@
+/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir

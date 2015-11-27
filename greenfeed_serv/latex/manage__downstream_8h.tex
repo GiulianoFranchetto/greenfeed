@@ -1,0 +1,131 @@
+\hypertarget{manage__downstream_8h}{\section{includes/manage\-\_\-downstream.h File Reference}
+\label{manage__downstream_8h}\index{includes/manage\-\_\-downstream.\-h@{includes/manage\-\_\-downstream.\-h}}
+}
+
+
+This file defines some function prototypes and global variables.  
+
+
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include $<$downstream\-\_\-packet.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+Include dependency graph for manage\-\_\-downstream.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manage__downstream_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{manage__downstream_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{manage__downstream_8h_a239658676acc5572c58ccad11e7214cd}{send\-\_\-downstream\-\_\-message} (S\-O\-C\-K\-E\-T socket, struct sockaddr\-\_\-in from, socklen\-\_\-t size, \hyperlink{structdownstream__packet}{downstream\-\_\-packet} packet, bool use\-\_\-minimum\-\_\-data)
+\begin{DoxyCompactList}\small\item\em This function send a message to the Io\-T station. This message will next be sent in Lo\-Ra. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{manage__downstream_8h_a045bea38624e1935146222398772ab42}{manage\-\_\-downstream} (void $\ast$r)
+\begin{DoxyCompactList}\small\item\em The thread routine called by main. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-t \hyperlink{manage__downstream_8h_a2a9b27e18263ba28e7bf1dda832cff0e}{thread\-\_\-manage\-\_\-downstream}
+\item 
+bool \hyperlink{manage__downstream_8h_ad54e3fbaaf4a33c07d9a070bf3986a0a}{stop\-\_\-thread\-\_\-downstream}
+\item 
+int \hyperlink{manage__downstream_8h_a14c8d3b0c27669fa3961afc367df7a77}{downstream\-\_\-error}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file defines some function prototypes and global variables. \begin{DoxyAuthor}{Author}
+Giuliano Franchetto 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+30/09/2015 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{manage__downstream_8h_a045bea38624e1935146222398772ab42}{\index{manage\-\_\-downstream.\-h@{manage\-\_\-downstream.\-h}!manage\-\_\-downstream@{manage\-\_\-downstream}}
+\index{manage\-\_\-downstream@{manage\-\_\-downstream}!manage_downstream.h@{manage\-\_\-downstream.\-h}}
+\subsubsection[{manage\-\_\-downstream}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ manage\-\_\-downstream (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{r}
+\end{DoxyParamCaption}
+)}}\label{manage__downstream_8h_a045bea38624e1935146222398772ab42}
+
+
+The thread routine called by main. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & unused param \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manage__downstream_8h_a045bea38624e1935146222398772ab42_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manage__downstream_8h_a239658676acc5572c58ccad11e7214cd}{\index{manage\-\_\-downstream.\-h@{manage\-\_\-downstream.\-h}!send\-\_\-downstream\-\_\-message@{send\-\_\-downstream\-\_\-message}}
+\index{send\-\_\-downstream\-\_\-message@{send\-\_\-downstream\-\_\-message}!manage_downstream.h@{manage\-\_\-downstream.\-h}}
+\subsubsection[{send\-\_\-downstream\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}int send\-\_\-downstream\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{S\-O\-C\-K\-E\-T}]{socket, }
+\item[{struct sockaddr\-\_\-in}]{from, }
+\item[{socklen\-\_\-t}]{size, }
+\item[{{\bf downstream\-\_\-packet}}]{packet, }
+\item[{bool}]{use\-\_\-minimum\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{manage__downstream_8h_a239658676acc5572c58ccad11e7214cd}
+
+
+This function send a message to the Io\-T station. This message will next be sent in Lo\-Ra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the udp socket with the Io\-T station \\
+\hline
+{\em from} & a sockaddr\-\_\-in structure which defines the communication with the Io\-T station \\
+\hline
+{\em size} & \\
+\hline
+{\em packet} & the packet to send to the Io\-T station, see \hyperlink{structdownstream__packet}{downstream\-\_\-packet} \\
+\hline
+{\em use\-\_\-minimum\-\_\-data} & packet will be filled with default data in some fields. Needs to be set to true for the moment\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or the errno code 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{manage__downstream_8h_a14c8d3b0c27669fa3961afc367df7a77}{\index{manage\-\_\-downstream.\-h@{manage\-\_\-downstream.\-h}!downstream\-\_\-error@{downstream\-\_\-error}}
+\index{downstream\-\_\-error@{downstream\-\_\-error}!manage_downstream.h@{manage\-\_\-downstream.\-h}}
+\subsubsection[{downstream\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int downstream\-\_\-error}}\label{manage__downstream_8h_a14c8d3b0c27669fa3961afc367df7a77}
+The number of error this thread made \hypertarget{manage__downstream_8h_ad54e3fbaaf4a33c07d9a070bf3986a0a}{\index{manage\-\_\-downstream.\-h@{manage\-\_\-downstream.\-h}!stop\-\_\-thread\-\_\-downstream@{stop\-\_\-thread\-\_\-downstream}}
+\index{stop\-\_\-thread\-\_\-downstream@{stop\-\_\-thread\-\_\-downstream}!manage_downstream.h@{manage\-\_\-downstream.\-h}}
+\subsubsection[{stop\-\_\-thread\-\_\-downstream}]{\setlength{\rightskip}{0pt plus 5cm}bool stop\-\_\-thread\-\_\-downstream}}\label{manage__downstream_8h_ad54e3fbaaf4a33c07d9a070bf3986a0a}
+A boolean which must set to true to stop the thread \hypertarget{manage__downstream_8h_a2a9b27e18263ba28e7bf1dda832cff0e}{\index{manage\-\_\-downstream.\-h@{manage\-\_\-downstream.\-h}!thread\-\_\-manage\-\_\-downstream@{thread\-\_\-manage\-\_\-downstream}}
+\index{thread\-\_\-manage\-\_\-downstream@{thread\-\_\-manage\-\_\-downstream}!manage_downstream.h@{manage\-\_\-downstream.\-h}}
+\subsubsection[{thread\-\_\-manage\-\_\-downstream}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t thread\-\_\-manage\-\_\-downstream}}\label{manage__downstream_8h_a2a9b27e18263ba28e7bf1dda832cff0e}
+The pthread\-\_\-t used for the manage\-\_\-downstream thread 

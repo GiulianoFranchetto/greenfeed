@@ -1,0 +1,73 @@
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}base64\discretionary {-}{}{}\_\discretionary {-}{}{}decodestate Struct Reference}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}base64\discretionary {-}{}{}\_\discretionary {-}{}{}decodestate Struct Reference}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}base64\discretionary {-}{}{}\_\discretionary {-}{}{}encodestate Struct Reference}{5}{section.3.3}
+\contentsline {section}{\numberline {3.4}base64\discretionary {-}{}{}\_\discretionary {-}{}{}encodestate Struct Reference}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}decoder Struct Reference}{6}{section.3.5}
+\contentsline {section}{\numberline {3.6}downstream\discretionary {-}{}{}\_\discretionary {-}{}{}packet Struct Reference}{6}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{7}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Field Documentation}{7}{subsection.3.6.2}
+\contentsline {subsubsection}{\numberline {3.6.2.1}code\discretionary {-}{}{}\_\discretionary {-}{}{}rate}{7}{subsubsection.3.6.2.1}
+\contentsline {subsubsection}{\numberline {3.6.2.2}data}{7}{subsubsection.3.6.2.2}
+\contentsline {subsubsection}{\numberline {3.6.2.3}datarate}{7}{subsubsection.3.6.2.3}
+\contentsline {subsubsection}{\numberline {3.6.2.4}disable\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}C}{7}{subsubsection.3.6.2.4}
+\contentsline {subsubsection}{\numberline {3.6.2.5}frequency}{7}{subsubsection.3.6.2.5}
+\contentsline {subsubsection}{\numberline {3.6.2.6}fsk\discretionary {-}{}{}\_\discretionary {-}{}{}datarate}{7}{subsubsection.3.6.2.6}
+\contentsline {subsubsection}{\numberline {3.6.2.7}fsk\discretionary {-}{}{}\_\discretionary {-}{}{}deviation}{8}{subsubsection.3.6.2.7}
+\contentsline {subsubsection}{\numberline {3.6.2.8}i\discretionary {-}{}{}\_\discretionary {-}{}{}polarization}{8}{subsubsection.3.6.2.8}
+\contentsline {subsubsection}{\numberline {3.6.2.9}modulation}{8}{subsubsection.3.6.2.9}
+\contentsline {subsubsection}{\numberline {3.6.2.10}payload\discretionary {-}{}{}\_\discretionary {-}{}{}size}{8}{subsubsection.3.6.2.10}
+\contentsline {subsubsection}{\numberline {3.6.2.11}power}{8}{subsubsection.3.6.2.11}
+\contentsline {subsubsection}{\numberline {3.6.2.12}rf\discretionary {-}{}{}\_\discretionary {-}{}{}channel}{8}{subsubsection.3.6.2.12}
+\contentsline {subsubsection}{\numberline {3.6.2.13}rf\discretionary {-}{}{}\_\discretionary {-}{}{}preamble}{8}{subsubsection.3.6.2.13}
+\contentsline {subsubsection}{\numberline {3.6.2.14}send\discretionary {-}{}{}\_\discretionary {-}{}{}now}{8}{subsubsection.3.6.2.14}
+\contentsline {subsubsection}{\numberline {3.6.2.15}time}{8}{subsubsection.3.6.2.15}
+\contentsline {subsubsection}{\numberline {3.6.2.16}timestamp}{8}{subsubsection.3.6.2.16}
+\contentsline {section}{\numberline {3.7}encoder Struct Reference}{9}{section.3.7}
+\contentsline {section}{\numberline {3.8}iot\discretionary {-}{}{}\_\discretionary {-}{}{}pull\discretionary {-}{}{}\_\discretionary {-}{}{}data Union Reference}{9}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{10}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}Member Function Documentation}{10}{subsection.3.8.2}
+\contentsline {subsubsection}{\numberline {3.8.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{10}{subsubsection.3.8.2.1}
+\contentsline {subsection}{\numberline {3.8.3}Field Documentation}{10}{subsection.3.8.3}
+\contentsline {subsubsection}{\numberline {3.8.3.1}msg}{10}{subsubsection.3.8.3.1}
+\contentsline {section}{\numberline {3.9}iot\discretionary {-}{}{}\_\discretionary {-}{}{}push\discretionary {-}{}{}\_\discretionary {-}{}{}data Union Reference}{11}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{11}{subsection.3.9.1}
+\contentsline {section}{\numberline {3.10}json\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}t Struct Reference}{12}{section.3.10}
+\contentsline {section}{\numberline {3.11}json\discretionary {-}{}{}\_\discretionary {-}{}{}object\discretionary {-}{}{}\_\discretionary {-}{}{}t Struct Reference}{13}{section.3.11}
+\contentsline {section}{\numberline {3.12}json\discretionary {-}{}{}\_\discretionary {-}{}{}value\discretionary {-}{}{}\_\discretionary {-}{}{}t Struct Reference}{14}{section.3.12}
+\contentsline {section}{\numberline {3.13}json\discretionary {-}{}{}\_\discretionary {-}{}{}value\discretionary {-}{}{}\_\discretionary {-}{}{}value Union Reference}{15}{section.3.13}
+\contentsline {chapter}{\numberline {4}File Documentation}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}includes/constants.h File Reference}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{18}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Macro Definition Documentation}{18}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}I\discretionary {-}{}{}N\discretionary {-}{}{}C\discretionary {-}{}{}O\discretionary {-}{}{}M\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}S\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{18}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}I\discretionary {-}{}{}N\discretionary {-}{}{}V\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}T}{18}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}J\discretionary {-}{}{}S\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}B\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}D}{18}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}O\discretionary {-}{}{}W\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}R}{18}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}U\discretionary {-}{}{}P\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}R}{18}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}S\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}R}{18}{subsubsection.4.1.2.6}
+\contentsline {section}{\numberline {4.2}includes/downstream\discretionary {-}{}{}\_\discretionary {-}{}{}packet.h File Reference}{18}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{19}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}includes/iot\discretionary {-}{}{}\_\discretionary {-}{}{}pull\discretionary {-}{}{}\_\discretionary {-}{}{}data.h File Reference}{20}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{20}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}includes/iot\discretionary {-}{}{}\_\discretionary {-}{}{}push\discretionary {-}{}{}\_\discretionary {-}{}{}data.h File Reference}{21}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{21}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}includes/manage\discretionary {-}{}{}\_\discretionary {-}{}{}downstream.h File Reference}{22}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{23}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{23}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}manage\discretionary {-}{}{}\_\discretionary {-}{}{}downstream}{23}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}send\discretionary {-}{}{}\_\discretionary {-}{}{}downstream\discretionary {-}{}{}\_\discretionary {-}{}{}message}{23}{subsubsection.4.5.2.2}
+\contentsline {subsection}{\numberline {4.5.3}Variable Documentation}{24}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}downstream\discretionary {-}{}{}\_\discretionary {-}{}{}error}{24}{subsubsection.4.5.3.1}
+\contentsline {subsubsection}{\numberline {4.5.3.2}stop\discretionary {-}{}{}\_\discretionary {-}{}{}thread\discretionary {-}{}{}\_\discretionary {-}{}{}downstream}{24}{subsubsection.4.5.3.2}
+\contentsline {subsubsection}{\numberline {4.5.3.3}thread\discretionary {-}{}{}\_\discretionary {-}{}{}manage\discretionary {-}{}{}\_\discretionary {-}{}{}downstream}{24}{subsubsection.4.5.3.3}
+\contentsline {section}{\numberline {4.6}main.\discretionary {-}{}{}c File Reference}{24}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{25}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Variable Documentation}{25}{subsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.2.1}downstream\discretionary {-}{}{}\_\discretionary {-}{}{}error}{25}{subsubsection.4.6.2.1}
+\contentsline {subsubsection}{\numberline {4.6.2.2}stop\discretionary {-}{}{}\_\discretionary {-}{}{}thread\discretionary {-}{}{}\_\discretionary {-}{}{}downstream}{25}{subsubsection.4.6.2.2}
+\contentsline {subsubsection}{\numberline {4.6.2.3}thread\discretionary {-}{}{}\_\discretionary {-}{}{}manage\discretionary {-}{}{}\_\discretionary {-}{}{}downstream}{25}{subsubsection.4.6.2.3}

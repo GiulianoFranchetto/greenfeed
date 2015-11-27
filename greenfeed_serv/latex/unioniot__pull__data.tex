@@ -1,0 +1,67 @@
+\hypertarget{unioniot__pull__data}{\section{iot\-\_\-pull\-\_\-data Union Reference}
+\label{unioniot__pull__data}\index{iot\-\_\-pull\-\_\-data@{iot\-\_\-pull\-\_\-data}}
+}
+
+
+{\ttfamily \#include \char`\"{}includes/iot\-\_\-pull\-\_\-data.\-h\char`\"{}}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{unioniot__pull__data_a019f7d47cfe35a4e91ae5068647c1014}{msg} \mbox{[}\hyperlink{constants_8h_a786442238545011e2a0eb7ce468ad692}{I\-N\-C\-O\-M\-M\-I\-N\-G\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\item 
+\hypertarget{unioniot__pull__data_a4aedf31c3dc77c1995181f8ac4236ff0}{\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>byte \hyperlink{unioniot__pull__data_a4723ed0bc6ed806bf66757d25e40641a}{protocol\_version}\\
+\hypertarget{structiot__pull__data_1_1@0_ada15cc4b0b6fe37df4be93e5260089e3}{\>byte {\bfseries token} \mbox{[}2\mbox{]}\\
+\hypertarget{structiot__pull__data_1_1@0_a3661902d618d08427f1ab8cca0411413}{\>byte {\bfseries pull\_data\_id}\\
+\hypertarget{structiot__pull__data_1_1@0_a7badc8040877155f12b7d17871dfe626}{\>byte {\bfseries MAC} \mbox{[}8\mbox{]}\\
+\hypertarget{structiot__pull__data_1_1@0_a95fd1d801d35ecbda7a3a9b479d2d2f3}{\>char {\bfseries json} \mbox{[}\hyperlink{constants_8h_a786442238545011e2a0eb7ce468ad692}{INCOMMING\_MSG\_SIZE}-\/1-\/2-\/1-\/8\mbox{]}\\
+\}; }\label{unioniot__pull__data_a4aedf31c3dc77c1995181f8ac4236ff0}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Here is a part of the official documentation. The structure \hyperlink{unioniot__pull__data}{iot\-\_\-pull\-\_\-data} is a C representation of the documentation \paragraph*{5.\-2. P\-U\-L\-L\-\_\-\-D\-A\-T\-A packet}
+
+That packet type is used by the gateway to poll data from the server.
+
+This data exchange is initialized by the gateway because it might be impossible for the server to send packets to the gateway if the gateway is behind a N\-A\-T.
+
+When the gateway initialize the exchange, the network route towards the server will open and will allow for packets to flow both directions. The gateway must periodically send P\-U\-L\-L\-\_\-\-D\-A\-T\-A packets to be sure the network route stays open for the server to be used at any time.
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Bytes }&{\bf Function  }\\\cline{1-2}
+\PBS\centering 0 &protocol version = 1 \\\cline{1-2}
+\PBS\centering 1-\/2 &random token \\\cline{1-2}
+\PBS\centering 3 &P\-U\-L\-L\-\_\-\-D\-A\-T\-A identifier 0x02 \\\cline{1-2}
+\PBS\centering 4-\/11 &Gateway unique identifier (M\-A\-C address) \\\cline{1-2}
+\end{TabularC}
+An union is different from a structure in how it manages memory. In a structure, the memory scheme is as follow \-: \par
+ $\vert$\-\_\-field A\-\_\-$\vert$\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\- field B\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-$\vert$ Padding $\vert$\-\_\-\-\_\-\-\_\-\-\_\-\-Field C\-\_\-\-\_\-\-\_\-\-\_\-$\vert$ ... \par
+ Each field starts when the field before stops (some padding may be added, by that's an other topic). An union typical scheme is as follow\-: \par
+ $\vert$\-\_\-field A\-\_\-$\vert$\par
+ $\vert$\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-field B\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-\-\_\-$\vert$\par
+ $\vert$field C$\vert$\par
+ All the fields start at the same adress. \par
+ So, why an union? As the documentation says, the message received by the server is a 12 bytes, and each byte has its own usage. We have to \char`\"{}cut\char`\"{} the message in part to get each packet of bytes. We could have done it by using the substring function, but that's boring (need to manage memory allocation, calculate indexes ...). By using an union A\-N\-D an internal structure, we can achieve the same thing by way more easily. We use an union to make the message and the internal structure to start at the same address. Then we use the structure memory scheme to create fields which have the perfect size to \char`\"{}cut\char`\"{} the message where it needs to be. Let's see the result \-: \par
+ 
+
+As we can see, the protocol\-\_\-version field of the structure has the same content of the first byte of the message, and so does token ... 
+
+\subsection{Field Documentation}
+\hypertarget{unioniot__pull__data_a019f7d47cfe35a4e91ae5068647c1014}{\index{iot\-\_\-pull\-\_\-data@{iot\-\_\-pull\-\_\-data}!msg@{msg}}
+\index{msg@{msg}!iot_pull_data@{iot\-\_\-pull\-\_\-data}}
+\subsubsection[{msg}]{\setlength{\rightskip}{0pt plus 5cm}char msg\mbox{[}{\bf I\-N\-C\-O\-M\-M\-I\-N\-G\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{unioniot__pull__data_a019f7d47cfe35a4e91ae5068647c1014}
+This is the field in which the message sent by the Io\-T station will be \hypertarget{unioniot__pull__data_a4723ed0bc6ed806bf66757d25e40641a}{\index{iot\-\_\-pull\-\_\-data@{iot\-\_\-pull\-\_\-data}!protocol\-\_\-version@{protocol\-\_\-version}}
+\index{protocol\-\_\-version@{protocol\-\_\-version}!iot_pull_data@{iot\-\_\-pull\-\_\-data}}
+\subsubsection[{protocol\-\_\-version}]{\setlength{\rightskip}{0pt plus 5cm}byte protocol\-\_\-version}}\label{unioniot__pull__data_a4723ed0bc6ed806bf66757d25e40641a}
+This is the structure which will cut the message. To have some explanations about the packed attribute, go see Mr L\-A\-L\-E\-V\-E\-E 
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+includes/\hyperlink{iot__pull__data_8h}{iot\-\_\-pull\-\_\-data.\-h}\end{DoxyCompactItemize}

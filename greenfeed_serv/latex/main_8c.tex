@@ -1,0 +1,76 @@
+\hypertarget{main_8c}{\section{main.\-c File Reference}
+\label{main_8c}\index{main.\-c@{main.\-c}}
+}
+
+
+This file is the entry of the main program to communicate with the Kerlink Io\-T station.  
+
+
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$manage\-\_\-upstream.\-h$>$}\\*
+{\ttfamily \#include $<$manage\-\_\-downstream.\-h$>$}\\*
+Include dependency graph for main.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{main_8c_a427433f28515b38b78316d2c041d06e0}{void {\bfseries signal\-\_\-int} (int sig)}\label{main_8c_a427433f28515b38b78316d2c041d06e0}
+
+\item 
+\hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{int {\bfseries main} ()}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-t \hyperlink{main_8c_a49e34dce6ea4518b48454896a6ecd171}{thread\-\_\-manage\-\_\-upstream}
+\item 
+pthread\-\_\-t \hyperlink{main_8c_a2a9b27e18263ba28e7bf1dda832cff0e}{thread\-\_\-manage\-\_\-downstream}
+\item 
+bool \hyperlink{main_8c_a4a6f394651f7af3aedb62c255a67bc59}{stop\-\_\-thread\-\_\-upstream} = false
+\item 
+bool \hyperlink{main_8c_ad54e3fbaaf4a33c07d9a070bf3986a0a}{stop\-\_\-thread\-\_\-downstream} = false
+\item 
+int \hyperlink{main_8c_a66a09b67a86f445357c6c380f25d1781}{upstream\-\_\-error} = 0
+\item 
+int \hyperlink{main_8c_a14c8d3b0c27669fa3961afc367df7a77}{downstream\-\_\-error} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is the entry of the main program to communicate with the Kerlink Io\-T station. \begin{DoxyAuthor}{Author}
+Giuliano Franchetto 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+09/30/2015 
+\end{DoxyDate}
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8c_a14c8d3b0c27669fa3961afc367df7a77}{\index{main.\-c@{main.\-c}!downstream\-\_\-error@{downstream\-\_\-error}}
+\index{downstream\-\_\-error@{downstream\-\_\-error}!main.c@{main.\-c}}
+\subsubsection[{downstream\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int downstream\-\_\-error = 0}}\label{main_8c_a14c8d3b0c27669fa3961afc367df7a77}
+The number of error this thread made \hypertarget{main_8c_ad54e3fbaaf4a33c07d9a070bf3986a0a}{\index{main.\-c@{main.\-c}!stop\-\_\-thread\-\_\-downstream@{stop\-\_\-thread\-\_\-downstream}}
+\index{stop\-\_\-thread\-\_\-downstream@{stop\-\_\-thread\-\_\-downstream}!main.c@{main.\-c}}
+\subsubsection[{stop\-\_\-thread\-\_\-downstream}]{\setlength{\rightskip}{0pt plus 5cm}bool stop\-\_\-thread\-\_\-downstream = false}}\label{main_8c_ad54e3fbaaf4a33c07d9a070bf3986a0a}
+A boolean which must set to true to stop the thread \hypertarget{main_8c_a4a6f394651f7af3aedb62c255a67bc59}{\index{main.\-c@{main.\-c}!stop\-\_\-thread\-\_\-upstream@{stop\-\_\-thread\-\_\-upstream}}
+\index{stop\-\_\-thread\-\_\-upstream@{stop\-\_\-thread\-\_\-upstream}!main.c@{main.\-c}}
+\subsubsection[{stop\-\_\-thread\-\_\-upstream}]{\setlength{\rightskip}{0pt plus 5cm}bool stop\-\_\-thread\-\_\-upstream = false}}\label{main_8c_a4a6f394651f7af3aedb62c255a67bc59}
+This varibale must be set to true to stop the thread \hypertarget{main_8c_a2a9b27e18263ba28e7bf1dda832cff0e}{\index{main.\-c@{main.\-c}!thread\-\_\-manage\-\_\-downstream@{thread\-\_\-manage\-\_\-downstream}}
+\index{thread\-\_\-manage\-\_\-downstream@{thread\-\_\-manage\-\_\-downstream}!main.c@{main.\-c}}
+\subsubsection[{thread\-\_\-manage\-\_\-downstream}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t thread\-\_\-manage\-\_\-downstream}}\label{main_8c_a2a9b27e18263ba28e7bf1dda832cff0e}
+The pthread\-\_\-t used for the manage\-\_\-downstream thread \hypertarget{main_8c_a49e34dce6ea4518b48454896a6ecd171}{\index{main.\-c@{main.\-c}!thread\-\_\-manage\-\_\-upstream@{thread\-\_\-manage\-\_\-upstream}}
+\index{thread\-\_\-manage\-\_\-upstream@{thread\-\_\-manage\-\_\-upstream}!main.c@{main.\-c}}
+\subsubsection[{thread\-\_\-manage\-\_\-upstream}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t thread\-\_\-manage\-\_\-upstream}}\label{main_8c_a49e34dce6ea4518b48454896a6ecd171}
+The thread used by the manage\-\_\-upstream routine \hypertarget{main_8c_a66a09b67a86f445357c6c380f25d1781}{\index{main.\-c@{main.\-c}!upstream\-\_\-error@{upstream\-\_\-error}}
+\index{upstream\-\_\-error@{upstream\-\_\-error}!main.c@{main.\-c}}
+\subsubsection[{upstream\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int upstream\-\_\-error = 0}}\label{main_8c_a66a09b67a86f445357c6c380f25d1781}
+The number of error the upstream thread did 

@@ -1,0 +1,60 @@
+\hypertarget{structpull__resp}{\section{pull\-\_\-resp Struct Reference}
+\label{structpull__resp}\index{pull\-\_\-resp@{pull\-\_\-resp}}
+}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structpull__resp_a02849de4c9014b33209233e7111f732b}{byte {\bfseries protocol}}\label{structpull__resp_a02849de4c9014b33209233e7111f732b}
+
+\item 
+\hypertarget{structpull__resp_ae7dfa7db7be91bb9fdaa8d3497a50ce7}{byte {\bfseries unused} \mbox{[}2\mbox{]}}\label{structpull__resp_ae7dfa7db7be91bb9fdaa8d3497a50ce7}
+
+\item 
+\hypertarget{structpull__resp_ac9af2606678b0b985667c0b97b5ef8b5}{byte {\bfseries id}}\label{structpull__resp_ac9af2606678b0b985667c0b97b5ef8b5}
+
+\item 
+\hypertarget{structpull__resp_ae75ec805c7e74dcf4dae969c03d32661}{char {\bfseries data} \mbox{[}2048\mbox{]}}\label{structpull__resp_ae75ec805c7e74dcf4dae969c03d32661}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\paragraph*{5.\-4. P\-U\-L\-L\-\_\-\-R\-E\-S\-P packet}
+
+That packet type is used by the server to send R\-F packets and associated metadata that will have to be emitted by the gateway.
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Bytes }&{\bf Function  }\\\cline{1-2}
+\PBS\centering 0 &protocol version = 1 \\\cline{1-2}
+\PBS\centering 1-\/2 &unused bytes \\\cline{1-2}
+\PBS\centering 3 &P\-U\-L\-L\-\_\-\-R\-E\-S\-P identifier 0x03 \\\cline{1-2}
+\PBS\centering 4-\/end &J\-S\-O\-N object, starting with \{, ending with \}, see section 6 \\\cline{1-2}
+\end{TabularC}
+
+
+\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Name }&\PBS\centering {\bf Type }&{\bf Function  }\\\cline{1-3}
+\PBS\centering imme &\PBS\centering bool &Send packet immediately (will ignore tmst \& time) \\\cline{1-3}
+\PBS\centering tmst &\PBS\centering number &Send packet on a certain timestamp value (will ignore time) \\\cline{1-3}
+\PBS\centering time &\PBS\centering string &Send packet at a certain time (G\-P\-S synchronization required) \\\cline{1-3}
+\PBS\centering freq &\PBS\centering number &T\-X central frequency in M\-Hz (unsigned float, Hz precision) \\\cline{1-3}
+\PBS\centering rfch &\PBS\centering number &Concentrator \char`\"{}\-R\-F chain\char`\"{} used for T\-X (unsigned integer) \\\cline{1-3}
+\PBS\centering powe &\PBS\centering number &T\-X output power in d\-Bm (unsigned integer, d\-Bm precision) \\\cline{1-3}
+\PBS\centering modu &\PBS\centering string &Modulation identifier \char`\"{}\-L\-O\-R\-A\char`\"{} or \char`\"{}\-F\-S\-K\char`\"{} \\\cline{1-3}
+\PBS\centering datr &\PBS\centering string &Lo\-Ra datarate identifier (eg. S\-F12\-B\-W500) \\\cline{1-3}
+\PBS\centering datr &\PBS\centering number &F\-S\-K datarate (unsigned, in bits per second) \\\cline{1-3}
+\PBS\centering codr &\PBS\centering string &Lo\-Ra E\-C\-C coding rate identifier \\\cline{1-3}
+\PBS\centering fdev &\PBS\centering number &F\-S\-K frequency deviation (unsigned integer, in Hz) \\\cline{1-3}
+\PBS\centering ipol &\PBS\centering bool &Lora modulation polarization inversion \\\cline{1-3}
+\PBS\centering prea &\PBS\centering number &R\-F preamble size (unsigned integer) \\\cline{1-3}
+\PBS\centering size &\PBS\centering number &R\-F packet payload size in bytes (unsigned integer) \\\cline{1-3}
+\PBS\centering data &\PBS\centering string &Base64 encoded R\-F packet payload, padding optional \\\cline{1-3}
+\PBS\centering ncrc &\PBS\centering bool &If true, disable the C\-R\-C of the physical layer (optional) \\\cline{1-3}
+\end{TabularC}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/send\-\_\-downstream\-\_\-message.\-c\end{DoxyCompactItemize}

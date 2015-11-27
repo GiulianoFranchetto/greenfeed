@@ -1,0 +1,5 @@
+<map id="manage_upstream" name="manage_upstream">
+<area shape="rect" id="node2" href="$manage__upstream_8h.html#a8ee1dceccf967ddf0d20ad576068c613" title="This function parses a incoming message from the IoT station. " alt="" coords="188,5,335,32"/>
+<area shape="rect" id="node3" href="$manage__upstream_8h.html#a8224dd17e2e125f1f84bb33b7c5ad538" title="Print a nice message on the console which the data contained in the upstream_packet. " alt="" coords="184,56,339,83"/>
+<area shape="rect" id="node4" href="$manage__upstream_8h.html#a81f80bf5317a7b704e747b29414179d3" title="This function frees the linked list in the upstream_packet packet. " alt="" coords="186,107,337,133"/>
+</map>

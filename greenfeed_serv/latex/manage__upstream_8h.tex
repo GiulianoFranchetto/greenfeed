@@ -1,0 +1,164 @@
+\hypertarget{manage__upstream_8h}{\section{includes/manage\-\_\-upstream.h File Reference}
+\label{manage__upstream_8h}\index{includes/manage\-\_\-upstream.\-h@{includes/manage\-\_\-upstream.\-h}}
+}
+
+
+This file defines some function prototypes and global variables.  
+
+
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include $<$iot\-\_\-push\-\_\-data.\-h$>$}\\*
+{\ttfamily \#include $<$upstream\-\_\-packet.\-h$>$}\\*
+Include dependency graph for manage\-\_\-upstream.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manage__upstream_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{manage__upstream_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{manage__upstream_8h_a60c55d3a6d5e77790280275a92a4ba59}{manage\-\_\-upstream} (void $\ast$args)
+\begin{DoxyCompactList}\small\item\em The thread routine called by main. \end{DoxyCompactList}\item 
+int \hyperlink{manage__upstream_8h_a8ee1dceccf967ddf0d20ad576068c613}{parse\-\_\-upstream\-\_\-json} (\hyperlink{unioniot__push__data}{iot\-\_\-push\-\_\-data} data, \hyperlink{structupstream__packet}{upstream\-\_\-packet} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em This function parses a incoming message from the Io\-T station. \end{DoxyCompactList}\item 
+void \hyperlink{manage__upstream_8h_a8224dd17e2e125f1f84bb33b7c5ad538}{print\-\_\-upstream\-\_\-packet} (\hyperlink{structupstream__packet}{upstream\-\_\-packet} packet)
+\begin{DoxyCompactList}\small\item\em Print a nice message on the console which the data contained in the \hyperlink{structupstream__packet}{upstream\-\_\-packet}. \end{DoxyCompactList}\item 
+void \hyperlink{manage__upstream_8h_a81f80bf5317a7b704e747b29414179d3}{free\-\_\-upstream\-\_\-packet} (\hyperlink{structupstream__packet}{upstream\-\_\-packet} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em This function frees the linked list in the \hyperlink{structupstream__packet}{upstream\-\_\-packet} packet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-t \hyperlink{manage__upstream_8h_a49e34dce6ea4518b48454896a6ecd171}{thread\-\_\-manage\-\_\-upstream}
+\item 
+bool \hyperlink{manage__upstream_8h_a4a6f394651f7af3aedb62c255a67bc59}{stop\-\_\-thread\-\_\-upstream}
+\item 
+int \hyperlink{manage__upstream_8h_a66a09b67a86f445357c6c380f25d1781}{upstream\-\_\-error}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file defines some function prototypes and global variables. \begin{DoxyAuthor}{Author}
+Giuliano Franchetto 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+30/09/2015 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{manage__upstream_8h_a81f80bf5317a7b704e747b29414179d3}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!free\-\_\-upstream\-\_\-packet@{free\-\_\-upstream\-\_\-packet}}
+\index{free\-\_\-upstream\-\_\-packet@{free\-\_\-upstream\-\_\-packet}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{free\-\_\-upstream\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-upstream\-\_\-packet (
+\begin{DoxyParamCaption}
+\item[{{\bf upstream\-\_\-packet} $\ast$}]{packet}
+\end{DoxyParamCaption}
+)}}\label{manage__upstream_8h_a81f80bf5317a7b704e747b29414179d3}
+
+
+This function frees the linked list in the \hyperlink{structupstream__packet}{upstream\-\_\-packet} packet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$packet} & A pointer to the \hyperlink{structupstream__packet}{upstream\-\_\-packet} to free \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\hypertarget{manage__upstream_8h_a60c55d3a6d5e77790280275a92a4ba59}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!manage\-\_\-upstream@{manage\-\_\-upstream}}
+\index{manage\-\_\-upstream@{manage\-\_\-upstream}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{manage\-\_\-upstream}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ manage\-\_\-upstream (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{r}
+\end{DoxyParamCaption}
+)}}\label{manage__upstream_8h_a60c55d3a6d5e77790280275a92a4ba59}
+
+
+The thread routine called by main. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & unused param \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-U\-L\-L 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{manage__upstream_8h_a60c55d3a6d5e77790280275a92a4ba59_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{manage__upstream_8h_a8ee1dceccf967ddf0d20ad576068c613}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!parse\-\_\-upstream\-\_\-json@{parse\-\_\-upstream\-\_\-json}}
+\index{parse\-\_\-upstream\-\_\-json@{parse\-\_\-upstream\-\_\-json}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{parse\-\_\-upstream\-\_\-json}]{\setlength{\rightskip}{0pt plus 5cm}int parse\-\_\-upstream\-\_\-json (
+\begin{DoxyParamCaption}
+\item[{{\bf iot\-\_\-push\-\_\-data}}]{data, }
+\item[{{\bf upstream\-\_\-packet} $\ast$}]{packet}
+\end{DoxyParamCaption}
+)}}\label{manage__upstream_8h_a8ee1dceccf967ddf0d20ad576068c613}
+
+
+This function parses a incoming message from the Io\-T station. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \hyperlink{unioniot__push__data}{iot\-\_\-push\-\_\-data} representing the Io\-T packet \\
+\hline
+{\em $\ast$packet} & a pointer to a \hyperlink{structupstream__packet}{upstream\-\_\-packet} which will be filled by the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, errno on error 
+\end{DoxyReturn}
+\hypertarget{manage__upstream_8h_a8224dd17e2e125f1f84bb33b7c5ad538}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!print\-\_\-upstream\-\_\-packet@{print\-\_\-upstream\-\_\-packet}}
+\index{print\-\_\-upstream\-\_\-packet@{print\-\_\-upstream\-\_\-packet}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{print\-\_\-upstream\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void print\-\_\-upstream\-\_\-packet (
+\begin{DoxyParamCaption}
+\item[{{\bf upstream\-\_\-packet}}]{packet}
+\end{DoxyParamCaption}
+)}}\label{manage__upstream_8h_a8224dd17e2e125f1f84bb33b7c5ad538}
+
+
+Print a nice message on the console which the data contained in the \hyperlink{structupstream__packet}{upstream\-\_\-packet}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & the packet to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{manage__upstream_8h_a4a6f394651f7af3aedb62c255a67bc59}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!stop\-\_\-thread\-\_\-upstream@{stop\-\_\-thread\-\_\-upstream}}
+\index{stop\-\_\-thread\-\_\-upstream@{stop\-\_\-thread\-\_\-upstream}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{stop\-\_\-thread\-\_\-upstream}]{\setlength{\rightskip}{0pt plus 5cm}bool stop\-\_\-thread\-\_\-upstream}}\label{manage__upstream_8h_a4a6f394651f7af3aedb62c255a67bc59}
+This varibale must be set to true to stop the thread \hypertarget{manage__upstream_8h_a49e34dce6ea4518b48454896a6ecd171}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!thread\-\_\-manage\-\_\-upstream@{thread\-\_\-manage\-\_\-upstream}}
+\index{thread\-\_\-manage\-\_\-upstream@{thread\-\_\-manage\-\_\-upstream}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{thread\-\_\-manage\-\_\-upstream}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t thread\-\_\-manage\-\_\-upstream}}\label{manage__upstream_8h_a49e34dce6ea4518b48454896a6ecd171}
+The thread used by the manage\-\_\-upstream routine \hypertarget{manage__upstream_8h_a66a09b67a86f445357c6c380f25d1781}{\index{manage\-\_\-upstream.\-h@{manage\-\_\-upstream.\-h}!upstream\-\_\-error@{upstream\-\_\-error}}
+\index{upstream\-\_\-error@{upstream\-\_\-error}!manage_upstream.h@{manage\-\_\-upstream.\-h}}
+\subsubsection[{upstream\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int upstream\-\_\-error}}\label{manage__upstream_8h_a66a09b67a86f445357c6c380f25d1781}
+The number of error the upstream thread did 
