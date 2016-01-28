@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('greenfeed', ['ionic', 'ionic-material', 'ionMdInput', 'greenfeed.controllers'])
+angular.module('greenfeed', ['ionic', 'ionic-material', 'ngResource', 'ionMdInput', 'greenfeed.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,17 +32,13 @@ angular.module('greenfeed', ['ionic', 'ionic-material', 'ionMdInput', 'greenfeed
     $ionicConfigProvider.backButton.previousTitleText(false);
     */
 
-    $stateProvider.state('app', {
-        url: '/app',
-        abstract: true
-    })
-	
-    .state('app.login', {
+    $stateProvider	
+    .state('login', {
         url: '/login',
 	templateUrl: 'templates/login.html',
 	controller: 'LoginCtrl',
 	controllerAs: "loginCtrl"        
     })
 
-    $urlRouterProvider.otherwise('/app/login');
+    $urlRouterProvider.otherwise('/login');
 });

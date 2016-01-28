@@ -9,6 +9,7 @@
     <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script src="lib/angular-resource/angular-resource.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
     <script src="lib/ion-md-input/js/ion-md-input.min.js"></script>
@@ -17,6 +18,6 @@
 
   </head>
   <body ng-app="greenfeed">
-        <ion-nav-view class="grade-a platform-browser platform-linux platform-ready"></ion-nav-view>
+        <ion-nav-view></ion-nav-view>
   </body>
 </html>

@@ -1,11 +1,18 @@
 /* global angular, document, window */
 'use strict';
+var base_url = 'http://195.83.139.38:1201';
 
-angular.module('greenfeed.controllers', [])
+var module = angular.module('greenfeed.controllers', ['ngResource'])
 
-.factory('profile', function(){
+.factory('profile', ['$resource', function($resource){
  	var profile = {};
     return {
+		getResource: function() {
+			return $resource( base_url + '/user/:id/:pwd', 
+							{ id : '@id', pwd : '@pwd' }, 
+							{ 'auth' : { method:'GET' } }
+			);
+		},
 		getProfile: function() {
 			return profile;
 		},
@@ -13,19 +20,21 @@ angular.module('greenfeed.controllers', [])
 			profile = s; 
 		}
     };
-})
+}])
 
 .controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk, profile) {
-    $timeout(function() {
-        $scope.$parent.hideHeader();
-    }, 0);
     ionicMaterialInk.displayEffect();
 
     var self = this;
 	this.p = {};
 	this.auth = function() {
-		profile.setProfile(self.p);
-		console.log(profile.getProfile().username);
+		profile.getResource().auth(self.p.email, self.p.pwd)
+			.$promise.then(function(data) {
+				profile.setProfile(self.p);
+				console.log(profile.getProfile().username);
+			}, function(error){
+				/*Error treatment*/
+			});
 	}
 })
 
