@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('greenfeed', ['ionic', 'ionic-material', 'ngResource', 'ionMdInput', 'greenfeed.controllers'])
+angular.module('greenfeed_main', ['ionic', 'ionic-material', 'ngResource', 'ionMdInput', 'greenfeed.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,46 +22,36 @@ angular.module('greenfeed', ['ionic', 'ionic-material', 'ngResource', 'ionMdInpu
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('login', {
-      url: "/login",
- 	  views: {
-        'primary': {
-          templateUrl: "login.html",
-          controller: 'LoginCtrl',
-		  controllerAs: 'loginCtrl'
-        }
-      }
-    })
-    .state('main', {
-      url: "/main",
-      views: {
-        'primary': {
-          templateUrl: "main.html"
-        }
-      }
-    })
     .state('tabs', {
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
     })
-    .state('tabs.dashboard', {
-      url: "/dashboard",
+    .state('tabs.home', {
+      url: "/home",
       views: {
-        'dashboard-tab': {
-          templateUrl: "templates/dashboard.html"
+        'home-tab': {
+          templateUrl: "templates/home.html"/*,
+          controller: 'HomeTabCtrl'*/
         }
       }
     })
-    .state('tabs.reservation', {
-      url: "/reservation",
+    .state('tabs.facts', {
+      url: "/facts",
       views: {
-        'reservation-tab': {
-          templateUrl: "templates/reservation.html"
+        'home-tab': {
+          templateUrl: "templates/facts.html"
+        }
+      }
+    })
+    .state('tabs.facts2', {
+      url: "/facts2",
+      views: {
+        'home-tab': {
+          templateUrl: "templates/facts2.html"
         }
       }
     })
@@ -72,7 +62,24 @@ angular.module('greenfeed', ['ionic', 'ionic-material', 'ngResource', 'ionMdInpu
           templateUrl: "templates/about.html"
         }
       }
+    })
+    .state('tabs.navstack', {
+      url: "/navstack",
+      views: {
+        'about-tab': {
+          templateUrl: "templates/nav-stack.html"
+        }
+      }
+    })
+    .state('tabs.contact', {
+      url: "/contact",
+      views: {
+        'contact-tab': {
+          templateUrl: "templates/contact.html"
+        }
+      }
     });
 
-	$urlRouterProvider.otherwise("/tab/dashboard");
+	$urlRouterProvider.otherwise("/tab/home");
 });
+

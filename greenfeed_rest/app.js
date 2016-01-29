@@ -52,6 +52,7 @@ app.get('/abri', function(req, res){
 
 app.get('/user', function(req, res){
     var user = authorization(req);
+    console.log("Connection of " + user.name + " (" + user.pass + ")");
     User.find({'email': user.name, 'password': user.pass }, function(err, values){
         if(err){
             return res.sendStatus(500);

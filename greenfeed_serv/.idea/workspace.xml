@@ -54,8 +54,8 @@
       <file leaf-file-name="manage_upstream.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/manage_upstream.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.020775624">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.95844877">
+              <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -227,7 +227,6 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../greenfeed_rpi" />
   </component>
   <component name="RecentsManager">
@@ -682,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/manage_upstream.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020775624">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.95844877">
+          <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
