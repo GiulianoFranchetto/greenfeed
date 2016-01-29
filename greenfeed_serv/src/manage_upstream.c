@@ -108,8 +108,10 @@ static int understand_upstream_packet(upstream_packet packet){
             double vbat = json_object_dotget_number(abri_object, "v_bat");
             double pbat = json_object_dotget_number(abri_object, "p_bat");
             double mppto = json_object_dotget_number(abri_object, "mppt_o");
+            time_t t = time(NULL);
             bson_oid_init (&oid, NULL);
             BSON_APPEND_OID (doc, "_id", &oid);
+            BSON_APPEND_INT64(doc, "time", t);
             BSON_APPEND_DOUBLE(doc, "v_bat", vbat);
             BSON_APPEND_DOUBLE(doc, "p_bat", pbat);
             BSON_APPEND_DOUBLE(doc, "mppt_o", mppto);

@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yocto/Desktop/greenfeed
+CMAKE_SOURCE_DIR = /home/yocto/Desktop/greenfeed/greenfeed_serv
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed/build
+CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed/greenfeed_serv/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/greenfeed_comm_server_iot.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o   -c /home/yocto/Desktop/greenfeed/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/main.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/main.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/main.c > CMakeFiles/greenfeed_comm_server_iot.dir/main.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/main.c > CMakeFiles/greenfeed_comm_server_iot.dir/main.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/main.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/main.c -o CMakeFiles/greenfeed_comm_server_iot.dir/main.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/main.c -o CMakeFiles/greenfeed_comm_server_iot.dir/main.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o.provides.build: CMakeFiles/gre
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../src/manage_upstream.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o   -c /home/yocto/Desktop/greenfeed/src/manage_upstream.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_upstream.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/manage_upstream.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_upstream.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/manage_upstream.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_upstream.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o.provides.build:
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o: ../parson/parson.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o   -c /home/yocto/Desktop/greenfeed/parson/parson.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/parson/parson.c > CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c > CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/parson/parson.c -o CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c -o CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o.provides.build: CMake
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o: ../src/parse_upstream_json.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o   -c /home/yocto/Desktop/greenfeed/src/parse_upstream_json.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/parse_upstream_json.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/parse_upstream_json.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/parse_upstream_json.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/parse_upstream_json.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/parse_upstream_json.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o.provides.bu
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o: ../src/print_upstream_packet.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o   -c /home/yocto/Desktop/greenfeed/src/print_upstream_packet.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/print_upstream_packet.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/print_upstream_packet.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/print_upstream_packet.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/print_upstream_packet.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/print_upstream_packet.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o.provides.
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o: ../src/free_upstream_packet.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o   -c /home/yocto/Desktop/greenfeed/src/free_upstream_packet.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/free_upstream_packet.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/free_upstream_packet.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/free_upstream_packet.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/free_upstream_packet.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/free_upstream_packet.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o.provides.b
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o: ../src/manage_downstream.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o   -c /home/yocto/Desktop/greenfeed/src/manage_downstream.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_downstream.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/manage_downstream.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_downstream.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/manage_downstream.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_downstream.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o.provides.buil
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o: ../src/send_downstream_message.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o   -c /home/yocto/Desktop/greenfeed/src/send_downstream_message.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/send_downstream_message.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/send_downstream_message.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/send_downstream_message.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/send_downstream_message.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/send_downstream_message.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o.provide
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o: CMakeFiles/greenfeed_comm_server_iot.dir/flags.make
 CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o: ../src/mongo_connector.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o   -c /home/yocto/Desktop/greenfeed/src/mongo_connector.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o   -c /home/yocto/Desktop/greenfeed/greenfeed_serv/src/mongo_connector.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/src/mongo_connector.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/yocto/Desktop/greenfeed/greenfeed_serv/src/mongo_connector.c > CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.i
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/src/mongo_connector.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/yocto/Desktop/greenfeed/greenfeed_serv/src/mongo_connector.c -o CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.s
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o.requires:
 
@@ -300,7 +300,7 @@ greenfeed_comm_server_iot: CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_co
 greenfeed_comm_server_iot: CMakeFiles/greenfeed_comm_server_iot.dir/build.make
 greenfeed_comm_server_iot: ../lib/libb64.a
 greenfeed_comm_server_iot: CMakeFiles/greenfeed_comm_server_iot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yocto/Desktop/greenfeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable greenfeed_comm_server_iot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable greenfeed_comm_server_iot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/greenfeed_comm_server_iot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -325,6 +325,6 @@ CMakeFiles/greenfeed_comm_server_iot.dir/clean:
 .PHONY : CMakeFiles/greenfeed_comm_server_iot.dir/clean
 
 CMakeFiles/greenfeed_comm_server_iot.dir/depend:
-	cd /home/yocto/Desktop/greenfeed/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yocto/Desktop/greenfeed /home/yocto/Desktop/greenfeed /home/yocto/Desktop/greenfeed/build /home/yocto/Desktop/greenfeed/build /home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yocto/Desktop/greenfeed/greenfeed_serv/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yocto/Desktop/greenfeed/greenfeed_serv /home/yocto/Desktop/greenfeed/greenfeed_serv /home/yocto/Desktop/greenfeed/greenfeed_serv/build /home/yocto/Desktop/greenfeed/greenfeed_serv/build /home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/greenfeed_comm_server_iot.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/yocto/Desktop/greenfeed
+# Install script for directory: /home/yocto/Desktop/greenfeed/greenfeed_serv
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yocto/Desktop/greenfeed/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

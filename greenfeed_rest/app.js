@@ -1,7 +1,7 @@
 "use strict";
 
 /* Server creation */
-var express = require('express');
+var express    = require('express');
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
@@ -10,14 +10,15 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-/* Our 404 */
-app.use(function(req, res, next) {
-    res.sendStatus(404);
-});
-
 /* Database connection */
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/greenfeed');
+mongoose.connect('mongodb://localhost/greenfeed',function(err) {
+    if (err){
+      console.log("Couldn't connect to the database.");
+      console.log(err);
+      process.exit();
+    }
+});
 
 /* Model creation */
 var UserSchema = new mongoose.Schema({
@@ -34,12 +35,12 @@ var AbriSchema = new mongoose.Schema({
     mppt_o: Number
 });
 
-var User = mongoose.model('User', UserSchema);
-var Abri = mongoose.model('Abri', AbriSchema);
+var User = mongoose.model('user', UserSchema);
+var Abri = mongoose.model('abri', AbriSchema, 'abri');
 
 /* Get all entries for "Abri" */
 app.get('/abri', function(req, res){
-    Abri.find(function (err, values) {
+    Abri.find().limit(100).exec(function(err, values){
         if (err) {
             return res.sendStatus(500);
         }
@@ -58,6 +59,11 @@ app.get('/user', function(req, res){
         }
         return res.sendStatus(200);
     });
+});
+
+/* Our 404 */
+app.use(function(err, req, res, next) {
+    res.sendStatus(404);
 });
 
 app.listen(1201);

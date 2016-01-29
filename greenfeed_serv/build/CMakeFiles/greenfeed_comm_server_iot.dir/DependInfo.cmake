@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/yocto/Desktop/greenfeed/main.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o"
-  "/home/yocto/Desktop/greenfeed/parson/parson.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o"
-  "/home/yocto/Desktop/greenfeed/src/free_upstream_packet.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o"
-  "/home/yocto/Desktop/greenfeed/src/manage_downstream.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o"
-  "/home/yocto/Desktop/greenfeed/src/manage_upstream.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o"
-  "/home/yocto/Desktop/greenfeed/src/mongo_connector.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o"
-  "/home/yocto/Desktop/greenfeed/src/parse_upstream_json.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o"
-  "/home/yocto/Desktop/greenfeed/src/print_upstream_packet.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o"
-  "/home/yocto/Desktop/greenfeed/src/send_downstream_message.c" "/home/yocto/Desktop/greenfeed/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/main.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/free_upstream_packet.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/free_upstream_packet.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_downstream.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_upstream.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/mongo_connector.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/mongo_connector.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/parse_upstream_json.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/print_upstream_packet.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o"
+  "/home/yocto/Desktop/greenfeed/greenfeed_serv/src/send_downstream_message.c" "/home/yocto/Desktop/greenfeed/greenfeed_serv/build/CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
