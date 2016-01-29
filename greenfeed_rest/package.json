@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "~4.13.4",
     "mongoose": "~4.3.7",
-    "body-parser": "~1.14.2"
+    "body-parser": "~1.14.2",
+    "basic-auth": "~1.0.3"
   },
   "private": true
 }
