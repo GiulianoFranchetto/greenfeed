@@ -55,12 +55,12 @@ app.get('/user', function(req, res){
     console.log("Connection of " + user.name + " (" + user.pass + ")");
     User.find({'email': user.name, 'password': user.pass }, function(err, values){
         if(err){
-            return res.status(500).send('{"status": "KO"}');
+            return res.status(500).send('{"status#: "KO"}');
         }
         if(!values.length) {
-            return res.status(403).send('{"status": "KO"}');
+            return res.status(403).send('{"status#: "KO"}');
         }
-        return res.status(200).send('{"status": "OK"}');
+        return res.status(200).send('{"status#: "OK"}');
     });
 });
 

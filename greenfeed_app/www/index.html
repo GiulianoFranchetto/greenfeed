@@ -79,8 +79,20 @@
 
 
       <!-- Page Content -->
-      <div id="content" class="grey-blue login">
+      <div id="content" class="grey-blue">
 
+          
+      <!-- Modal Structure (erreur connexion) -->
+        <div id="err_co" class="modal bottom-sheet">
+          <div class="modal-content">
+            <h4>Erreur connexion</h4>
+            <p>La combinaison fournie ne permet pas de vous identifier. Su le problème persiste ou si vous n'avez pas de compte, merci de contacter l'association en charge des vélos</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
+      
         <!-- Toolbar -->
         <div id="toolbar" class="tool-login primary-color animated fadeindown">
          
@@ -102,7 +114,7 @@
             <label for="login-psw">Password</label>
           </div>
 
-          <a class="waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" href="dashboard.html">Login</a> 
+          <a class="modal-trigger waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4" onclick="auth()" id="do_login">Login</a> 
         </div><!-- End of Main Contents -->
       
        
@@ -110,6 +122,29 @@
 
     </div> <!-- End of Page Container --> 
     
+    <script type="application/javascript">
+       function auth (){
+            var username = document.getElementById('login').value;
+            var pass = document.getElementById('login-psw').value;
+            $.ajax(
+                {
+                    url :"http://195.83.139.38:1201/user",
+                    method:"get",
+                    dataType: "json",
+                    headers: {
+                        "Authorization": "Basic " + btoa(username + ":" + pass)
+                    }, 
+                 success: function(data, textStatus, jqXHR) {
+                    if(jqXHR.status === 200){
+                        window.location = "dashboard.html";
+                    } else {
+                        alert("Erreur de connexion");
+                    }
+                }
+            });
+       }
+    
+    </script>
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="js/jquery.swipebox.min.js"></script>   
     <script src="js/jquery.smoothState.min.js"></script> 
@@ -118,6 +153,5 @@
     <script src="js/jquery.mixitup.min.js"></script>
     <script src="js/masonry.min.js"></script>
     <script src="js/chart.min.js"></script>
-    <script src="js/functions.js"></script>
 </body>
 </html>
