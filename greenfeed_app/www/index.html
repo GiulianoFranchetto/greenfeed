@@ -4,6 +4,7 @@
   * Please see the included README.md file for license terms and conditions.
   -->
 <head>
+    <script src="http://debug-software.intel.com/target/target-script-min.js#yPKazb_c8JXyra2eLwivFOWmQDFjLgoc8do5jGz_xTo"></script>
     <title>greenfeed_login</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
@@ -77,22 +78,9 @@
 
   <div class="m-scene" id="main"> <!-- Main Container -->
 
-
       <!-- Page Content -->
       <div id="content" class="grey-blue">
-
-          
-      <!-- Modal Structure (erreur connexion) -->
-        <div id="err_co" class="modal bottom-sheet">
-          <div class="modal-content">
-            <h4>Erreur connexion</h4>
-            <p>La combinaison fournie ne permet pas de vous identifier. Su le problème persiste ou si vous n'avez pas de compte, merci de contacter l'association en charge des vélos</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-          </div>
-        </div>
-      
+              
         <!-- Toolbar -->
         <div id="toolbar" class="tool-login primary-color animated fadeindown">
          
@@ -133,17 +121,15 @@
                     dataType: "json",
                     headers: {
                         "Authorization": "Basic " + btoa(username + ":" + pass)
-                    }, 
-                 success: function(data, textStatus, jqXHR) {
-                    if(jqXHR.status === 200){
-                        window.location = "dashboard.html";
-                    } else {
-                        alert("Erreur de connexion");
                     }
-                }
-            });
-       }
-    
+                })
+                .done(function (data, text, jqXHR) {
+                    if(data.status === "KO")
+                        alert("Erreur de connexion");
+                    else    
+                        window.location = "dashboard.html";
+                });               
+            };
     </script>
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="js/jquery.swipebox.min.js"></script>   

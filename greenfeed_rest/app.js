@@ -42,11 +42,20 @@ var Abri = mongoose.model('abri', AbriSchema, 'abri');
 
 /* Get all entries for "Abri" */
 app.get('/abri', function(req, res){
-    Abri.find().sort({$natural: -1}).limit(30).exec(function(err, values){
+    Abri.find().sort({$natural: -1}).limit(100).exec(function(err, values){
         if (err) {
-            return res.sendStatus(500);
+            res.sendStatus(500);
         }
         res.status(200).send(values);
+    });
+});
+
+app.get('/abri/last', function(req, res){
+	Abri.find().sort({$natural: -1}).limit(1).exec(function(err, values){
+        if (err) {
+            res.sendStatus(500);
+        }
+        res.status(200).send(values[0]);
     });
 });
 
