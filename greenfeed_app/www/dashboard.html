@@ -2,170 +2,264 @@
 
 <!DOCTYPE html>
 <html lang="fr-FR">
-	<head>
-		<title>greenfeed_dashboard</title>
-		<meta content="IE=edge" http-equiv="x-ua-compatible">
-		<meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
-		<meta content="yes" name="apple-mobile-web-app-capable">
-		<meta content="yes" name="apple-touch-fullscreen">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<!-- Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-		<!-- Icons -->
-		<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
-		<!-- Styles -->
-		<link href="css/keyframes.css" rel="stylesheet" type="text/css">
-		<link href="css/materialize.min.css" rel="stylesheet" type="text/css">
-		<link href="css/swiper.css" rel="stylesheet" type="text/css">
-		<link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
-		<link href="css/style.css" rel="stylesheet" type="text/css">
-	</head>
-	<body>
-		<div class="m-scene" id="main">
-			<!-- Main Container -->
-			<!-- Page Content -->
-			<div id="content" class="page">
-				<!-- Header -->
-				<div id="toolbar" class="primary-color" style="text-align:center!important">
-					<span class="title" style="margin-left: 0px;">GreenFeed</span>
-				</div>
-				<div class="row">
-					<div class="col primary-color s12" style="padding-left: 0px; padding-right: 0px;">
-						<ul class="tabs primary-color">
-							<li class="tab col s3"><a href="#tdb">Tableau de bord</a></li>
-							<li class="tab col s3"><a href="#resa">Réservation</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- Main Content -->
-				<div class="animated fadeinup">
-					<!-- Page Dashboard -->
-					<div id="tdb" style="padding-left: 16px; padding-right: 16px;">                
-						<div>
-							<table>
-								<tr>
-									<td>Tension de la batterie</td>
-									<td style="text-align:right;"><span id="vbat"></span></td>
-								</tr>
-								<tr>
-									<td>Sortie du MPPT</td>
-									<td style="text-align:right;"><span id="mppt_o"></span></td>
-								</tr>
-							</table>
-						</div>
-                        
-						<!-- Graph -->
-                        <h4>Historique production</h4>
-				        <div id="chartdiv" style="min-width: 100%; height: 300px;"></div>																	
-					</div>
-					<div id="resa">
-						<!-- Page Reservation -->
-					</div>
-				</div>
-				<!-- End of Main Contents -->
-			</div>
-			<!-- End of Page Content -->
-		</div>
-		<!-- End of Page Container -->
-		<script src="js/jquery-2.1.0.min.js"></script>
-		<script src="js/jquery.swipebox.min.js"></script>   
-		<script src="js/jquery.smoothState.min.js"></script> 
-		<script src="js/materialize.min.js"></script> 
-		<script src="js/swiper.min.js"></script>  
-		<script src="js/jquery.mixitup.min.js"></script>
-		<script src="js/masonry.min.js"></script>
-		<script src="js/chart.min.js"></script>
-		<script src="js/functions.js"></script>
-        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>    
-         <script type="application/javascript">
-                var vbat = document.getElementById('vbat');
-                var mppt_o = document.getElementById('mppt_o');
-                var chart = {}, d=[];
-                $.ajax(
-                    {
-                        url :"http://195.83.139.38:1201/abri/last",
-                        method:"get",
-                        dataType: "json"
-                    })
-                    .done(function (data, text, jqXHR) {
-                        console.log(data);
-                        console.log(jqXHR);
-                        vbat.innerHTML = data.v_bat + " V";
-                        mppt_o.innerHTML = data.mppt_o + " W";
-                    });     
-             
-                $.ajax(
-                    {
-                        url :"http://195.83.139.38:1201/abri",
-                        method:"get",
-                        dataType: "json"
-                    })
-                    .done(function (data, text, jqXHR) {
-                        var i;
-                        for(i=0; i < data.length; i++) {
-                            var totalSec = data[i].time;
-                            var hours = parseInt( totalSec / 3600 ) % 24;
-                            var minutes = parseInt( totalSec / 60 ) % 60;
-                            var seconds = totalSec % 60;
+  <head>
+    <title>greenfeed_dashboard</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print'>
+    <link href="css/fullcalendar.min.css" rel="stylesheet" type="text/css">
+    <link href="css/scheduler.min.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+    <style>
+    #main {
+        overflow-y: hidden;
+        }
+        
+       h2 {
+    font-size: 11pt;
+    font-family: Verdana, Arial, Sans-Serif;
+}
+        .fc-view-container {
+            font-size: 11pt;
+    font-family: Verdana, Arial, Sans-Serif;
+        }
+    </style>
+  <body>
+    <div class="m-scene" id="main">
+      <!-- Main Container -->
+      <!-- Page Content -->
+      <div id="content" class="page">
+        <!-- Header -->
+        <div id="toolbar" class="primary-color" style="text-align:center!important">
+          <span class="title" style="margin-left: 0px;">GreenFeed</span>
+        </div>
+        <div id="top_tabs" class="row">
+          <div class="col primary-color s12" style="padding-left: 0px; padding-right: 0px;">
+            <ul class="tabs primary-color">
+              <li class="tab col s3"><a href="#tdb">Tableau de bord</a></li>
+              <li class="tab col s3"><a id="resa_tab" href="#resa">Réservation</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div class="">
+          <!-- Page Dashboard -->
+          <div id="tdb" style="padding-left: 16px; padding-right: 16px;">
+            <div>
+              <table>
+                <tr>
+                  <td>Tension de la batterie</td>
+                  <td style="text-align:right;"><span id="vbat"></span></td>
+                </tr>
+                <tr>
+                  <td>Sortie du MPPT</td>
+                  <td style="text-align:right;"><span id="mppt_o"></span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- Graph -->
+            <h4>Historique production</h4>
+            <div id="chartdiv" style="min-width: 100%; height: 300px;"></div>
+          </div>
+          <div id="resa">
+            <!-- Page Reservation -->
+            <div id='calendar'></div>
+            <style>
+              #calendar {
+              max-width: 900px;
+              min-height: 100%;
+              }
+            </style>
+          </div>
+        </div>
+        <!-- End of Main Contents -->
+      </div>
+      <!-- End of Page Content -->
+    </div>
+    <!-- End of Page Container -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>  
+    <script src="js/moment.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/scheduler.min.js"></script>
+    <script src="js/lang_fr.js"></script>
+    <script type="application/javascript">
+      var vbat = document.getElementById('vbat');
+      var mppt_o = document.getElementById('mppt_o');
+      var chart = {}, d=[];
+      $.ajax(
+          {
+              url :"http://195.83.139.38:1201/abri/last",
+              method:"get",
+              dataType: "json"
+          })
+          .done(function (data, text, jqXHR) {
+              vbat.innerHTML = data.v_bat + " V";
+              mppt_o.innerHTML = data.mppt_o + " W";
+          });     
+      
+      $.ajax(
+          {
+              url :"http://195.83.139.38:1201/abri",
+              method:"get",
+              dataType: "json"
+          })
+          .done(function (data, text, jqXHR) {
+              var i;
+              for(i=0; i < data.length; i++) {
+                  var totalSec = data[i].time;
+                  var hours = parseInt( totalSec / 3600 ) % 24;
+                  var minutes = parseInt( totalSec / 60 ) % 60;
+                  var seconds = totalSec % 60;
+      
+                  var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds  < 10 ? "0" + seconds : seconds);
+                  d.push({time: new Date(data[i].time * 1000), vbat: data[i].mppt_o});
+              }
+              d.reverse();
+          chart = AmCharts.makeChart("chartdiv", {
+              "type": "serial",
+              "theme": "light",
+              "marginRight": 16,
+              "marginTop": 7,
+              "autoMarginOffset": 0,
+              "dataProvider": d,
+              "valueAxes": [{
+                  "axisAlpha": 0.2,
+                  "dashLength": 1,
+                  "position": "left",
+                  "unit": " W",
+              }],
+              "mouseWheelZoomEnabled": true,
+              "graphs": [{
+                  "id": "g1",
+                  "fillColors": "#53da1d",
+                  "lineColor": "#53da1d",
+                  "hideBulletsCount": 50,
+                  "title": "red line",
+                  "valueField": "vbat",
+                  "useLineColorForBulletBorder": true,
+              }],
+              "chartScrollbar": {
+                  "autoGridCount": true,
+                  "graph": "g1",
+                  "scrollbarHeight": 22
+              },
+              "chartCursor": {
+                 "limitToGraph":"g1"
+              },
+              "categoryField": "time",
+              "categoryAxis": {
+                  "parseDates": true,
+                  "minPeriod": "ss", /* change to mm when in prod */
+                  "axisColor": "#DADADA",
+                  "dashLength": 1,
+                  "minorGridEnabled": true
+              },
+          });
+      
+          chart.addListener("rendered", zoomChart);
+          zoomChart();
+          doAgenda();
+      });
+      
+      // this method is called when chart is first inited as we listen for "rendered" event
+      function zoomChart() {
+          // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+          chart.zoomToIndexes(d.length - 3000, d.length - 1);
+      };        
+      
+      function doAgenda() {
+          var position= document.getElementById('top_tabs').getBoundingClientRect();
+          var bottom = position.bottom;
 
-                            var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds  < 10 ? "0" + seconds : seconds);
-                            d.push({time: new Date(data[i].time * 1000), vbat: data[i].mppt_o});
-                        }
-                        d.reverse();
-                         console.log(d);          
-                    chart = AmCharts.makeChart("chartdiv", {
-                        "type": "serial",
-                        "theme": "light",
-                        "marginRight": 16,
-                        "marginTop": 7,
-                        "autoMarginOffset": 0,
-                        "dataProvider": d,
-                        "valueAxes": [{
-                            "axisAlpha": 0.2,
-                            "dashLength": 1,
-                            "position": "left",
-                            "unit": " W",
-                        }],
-                        "mouseWheelZoomEnabled": true,
-                        "graphs": [{
-                            "id": "g1",
-                            "fillColors": "#53da1d",
-                            "lineColor": "#53da1d",
-                            "hideBulletsCount": 50,
-                            "title": "red line",
-                            "valueField": "vbat",
-                            "useLineColorForBulletBorder": true,
-                        }],
-                        "chartScrollbar": {
-                            "autoGridCount": true,
-                            "graph": "g1",
-                            "scrollbarHeight": 22
-                        },
-                        "chartCursor": {
-                           "limitToGraph":"g1"
-                        },
-                        "categoryField": "time",
-                        "categoryAxis": {
-                            "parseDates": true,
-                            "minPeriod": "ss", /* change to mm when in prod */
-                            "axisColor": "#DADADA",
-                            "dashLength": 1,
-                            "minorGridEnabled": true
-                        },
-                    });
+          $('#calendar').fullCalendar({
+              editable: false, // enable draggable events
+              height: window.screen.height - bottom - 50,
+              allDaySlot: false,
+              selectable: true,
+              timeFormat: 'HH:mm',
+              displayEventTime: false,
+              scrollTime: '08:00', // undo default 6am scrollTime
+              header: {
+                  left: 'today prev,next',
+                  center: 'title',
+                  right: ''
+              },
+              businessHours: {
+                start: '08:00', // a start time (10am in this example)
+                end: '20:00', // an end time (6pm in this example)  
+                dow: [1, 2, 3, 4, 5, 6, 0] 
+              },
+              defaultView: 'agendaWeek',
+              views: {
+                  agendaTwoDay: {
+                      type: 'agenda',
+                      duration: { days: 2 },
+                      // views that are more than a day will NOT do this behavior by default
+                      // so, we need to explicitly enable it
+                      groupByResource: true
 
-                    chart.addListener("rendered", zoomChart);
-                    zoomChart();
-                });
-
-                // this method is called when chart is first inited as we listen for "rendered" event
-                function zoomChart() {
-                    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-                    chart.zoomToIndexes(d.length - 3000, d.length - 1);
-                };
-        </script>
-	</body>
+                      //// uncomment this line to group by day FIRST with resources underneath
+                      //groupByDateAndResource: true
+                  }
+              },
+              resourceLabelText: 'Vélo',
+              resources: [
+                  { id: 'v1', title: 'Vélo 1', eventColor: 'green' },
+                  { id: 'v2', title: 'Vélo 2', eventColor: '#2e7910' },
+                  { id: 'v3', title: 'Vélo 3', eventColor: '#53da1d' },
+              ],
+              events: [
+                  { id: '1', resourceId: 'v1', start: '2016-01-07T09:00:00', end: '2016-01-07T11:00:00' },
+                  { id: '2', resourceId: 'v1', start: '2016-01-07T11:00:00', end: '2016-01-07T15:00:00' },
+                  { id: '3', resourceId: 'v2', start: '2016-01-07T13:00:00', end: '2016-01-07T16:00:00' },
+                  { id: '5', resourceId: 'v3', start: '2016-01-07T13:30:00', end: '2016-01-07T13:30:00' }
+              ],
+              eventClick: function(calEvent, jsEvent, view) {
+                    alert('Event: ' + calEvent.constraint);
+                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                    alert('View: ' + view.name);
+                },
+                dayClick: function(date, jsEvent, view, resource) {
+                    console.log(
+                        'dayClick',
+                        date.format(),
+                        resource ? resource.id : '(no resource)'
+                    );
+                }
+          });
+      };
+        
+    $("#resa_tab").click(function() {
+        setInterval(function(){
+             $('#calendar').fullCalendar('render');
+        }, 100);
+       
+    });
+    </script>
+  </body>
 </html>
 

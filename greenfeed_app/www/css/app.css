@@ -17,6 +17,8 @@ body {
     -webkit-highlight: none ;
     -webkit-tap-highlight-color: rgba(0,0,0,0) ;
     -webkit-tap-highlight-color: transparent ;      /* For some Androids */
+    background: white ;
+    color: black ;
 }
 
 /* Recommended for Windows 8 Phone */
@@ -35,10 +37,4 @@ body {
 /* allow copy-paste */
 input, textarea  {
     -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
-}
-
-body {
-    /* margin: 0.5rem ; */
-    background: white ;
-    color: black ;
 }
