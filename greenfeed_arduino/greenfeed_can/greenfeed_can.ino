@@ -43,7 +43,7 @@ byte getNumCmd(long SID, byte borne){
 byte charToInt(char d)
 {
     char str[2];
-    str[0]=d;
+    str[0] = d;
     str[1]='\0';
    return (int) strtol(str, NULL, 8);
 }
