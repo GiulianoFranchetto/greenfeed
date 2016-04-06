@@ -126,8 +126,11 @@
                 .done(function (data, text, jqXHR) {
                     if(data.status === "KO")
                         alert("Erreur de connexion");
-                    else    
+                    else {    
+                        console.log(data);
+                        localStorage["user_id"] = data._id;
                         window.location = "dashboard.html";
+                    }
                 });               
             };
     </script>

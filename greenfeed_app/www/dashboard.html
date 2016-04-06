@@ -22,20 +22,57 @@
     <link href="css/app.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
-    <style>
+  <style>
     #main {
-        overflow-y: hidden;
-        }
-        
-       h2 {
+    overflow-y: hidden;
+    }
+    h2 {
     font-size: 11pt;
     font-family: Verdana, Arial, Sans-Serif;
-}
-        .fc-view-container {
-            font-size: 11pt;
+    }
+    .fc-view-container {
+    font-size: 11pt;
     font-family: Verdana, Arial, Sans-Serif;
-        }
-    </style>
+    }
+    .modal {
+    display: none; /* Hidden by default */
+    z-index: 10; /* Sit on top */
+    min-width: calc(100%); /* Full width */
+    margin-top: -200px;
+    padding-top: 200px;
+    min-height: calc(100% + 200px); /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+    -webkit-transition: visibility 0s, opacity 0.2s linear;
+    -moz-transition: visibility 0s, opacity 0.2s linear;
+    -ms-transition: visibility 0s, opacity 0.2s linear;
+    -o-transition: visibility 0s, opacity 0.2s linear;
+    }
+    /* Modal Content/Box */
+    .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    }
+    /* The Close Button */
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+  </style>
   <body>
     <div class="m-scene" id="main">
       <!-- Main Container -->
@@ -55,6 +92,20 @@
         </div>
         <!-- Main Content -->
         <div class="">
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">x</span>
+              <p>Nouvelle reservation</p>
+              <br>
+              <p>Début:<br> <input id="starting_date" type="time"></p>
+              <br>
+              <p>Fin: <br><input id="ending_date" type="time"></p>
+              <br>
+              <button onclick="ok_button()">OK</button>
+            </div>
+          </div>
           <!-- Page Dashboard -->
           <div id="tdb" style="padding-left: 16px; padding-right: 16px;">
             <div>
@@ -105,159 +156,260 @@
     <script src="js/scheduler.min.js"></script>
     <script src="js/lang_fr.js"></script>
     <script type="application/javascript">
-      var vbat = document.getElementById('vbat');
-      var mppt_o = document.getElementById('mppt_o');
-      var chart = {}, d=[];
-      $.ajax(
-          {
-              url :"http://195.83.139.38:1201/abri/last",
-              method:"get",
-              dataType: "json"
-          })
-          .done(function (data, text, jqXHR) {
-              vbat.innerHTML = data.v_bat + " V";
-              mppt_o.innerHTML = data.mppt_o + " W";
-          });     
-      
-      $.ajax(
-          {
-              url :"http://195.83.139.38:1201/abri",
-              method:"get",
-              dataType: "json"
-          })
-          .done(function (data, text, jqXHR) {
-              var i;
-              for(i=0; i < data.length; i++) {
-                  var totalSec = data[i].time;
-                  var hours = parseInt( totalSec / 3600 ) % 24;
-                  var minutes = parseInt( totalSec / 60 ) % 60;
-                  var seconds = totalSec % 60;
-      
-                  var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds  < 10 ? "0" + seconds : seconds);
-                  d.push({time: new Date(data[i].time * 1000), vbat: data[i].mppt_o});
-              }
-              d.reverse();
-          chart = AmCharts.makeChart("chartdiv", {
-              "type": "serial",
-              "theme": "light",
-              "marginRight": 16,
-              "marginTop": 7,
-              "autoMarginOffset": 0,
-              "dataProvider": d,
-              "valueAxes": [{
-                  "axisAlpha": 0.2,
-                  "dashLength": 1,
-                  "position": "left",
-                  "unit": " W",
-              }],
-              "mouseWheelZoomEnabled": true,
-              "graphs": [{
-                  "id": "g1",
-                  "fillColors": "#53da1d",
-                  "lineColor": "#53da1d",
-                  "hideBulletsCount": 50,
-                  "title": "red line",
-                  "valueField": "vbat",
-                  "useLineColorForBulletBorder": true,
-              }],
-              "chartScrollbar": {
-                  "autoGridCount": true,
-                  "graph": "g1",
-                  "scrollbarHeight": 22
-              },
-              "chartCursor": {
-                 "limitToGraph":"g1"
-              },
-              "categoryField": "time",
-              "categoryAxis": {
-                  "parseDates": true,
-                  "minPeriod": "ss", /* change to mm when in prod */
-                  "axisColor": "#DADADA",
-                  "dashLength": 1,
-                  "minorGridEnabled": true
-              },
-          });
-      
-          chart.addListener("rendered", zoomChart);
-          zoomChart();
-          doAgenda();
-      });
-      
-      // this method is called when chart is first inited as we listen for "rendered" event
-      function zoomChart() {
-          // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-          chart.zoomToIndexes(d.length - 3000, d.length - 1);
-      };        
-      
-      function doAgenda() {
-          var position= document.getElementById('top_tabs').getBoundingClientRect();
-          var bottom = position.bottom;
+      var d1;
+// Get the modal
+var modal = document.getElementById('myModal');
 
-          $('#calendar').fullCalendar({
-              editable: false, // enable draggable events
-              height: window.screen.height - bottom - 50,
-              allDaySlot: false,
-              selectable: true,
-              timeFormat: 'HH:mm',
-              displayEventTime: false,
-              scrollTime: '08:00', // undo default 6am scrollTime
-              header: {
-                  left: 'today prev,next',
-                  center: 'title',
-                  right: ''
-              },
-              businessHours: {
-                start: '08:00', // a start time (10am in this example)
-                end: '20:00', // an end time (6pm in this example)  
-                dow: [1, 2, 3, 4, 5, 6, 0] 
-              },
-              defaultView: 'agendaWeek',
-              views: {
-                  agendaTwoDay: {
-                      type: 'agenda',
-                      duration: { days: 2 },
-                      // views that are more than a day will NOT do this behavior by default
-                      // so, we need to explicitly enable it
-                      groupByResource: true
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-                      //// uncomment this line to group by day FIRST with resources underneath
-                      //groupByDateAndResource: true
-                  }
-              },
-              resourceLabelText: 'Vélo',
-              resources: [
-                  { id: 'v1', title: 'Vélo 1', eventColor: 'green' },
-                  { id: 'v2', title: 'Vélo 2', eventColor: '#2e7910' },
-                  { id: 'v3', title: 'Vélo 3', eventColor: '#53da1d' },
-              ],
-              events: [
-                  { id: '1', resourceId: 'v1', start: '2016-01-07T09:00:00', end: '2016-01-07T11:00:00' },
-                  { id: '2', resourceId: 'v1', start: '2016-01-07T11:00:00', end: '2016-01-07T15:00:00' },
-                  { id: '3', resourceId: 'v2', start: '2016-01-07T13:00:00', end: '2016-01-07T16:00:00' },
-                  { id: '5', resourceId: 'v3', start: '2016-01-07T13:30:00', end: '2016-01-07T13:30:00' }
-              ],
-              eventClick: function(calEvent, jsEvent, view) {
-                    alert('Event: ' + calEvent.constraint);
-                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                    alert('View: ' + view.name);
-                },
-                dayClick: function(date, jsEvent, view, resource) {
-                    console.log(
-                        'dayClick',
-                        date.format(),
-                        resource ? resource.id : '(no resource)'
-                    );
-                }
-          });
-      };
-        
-    $("#resa_tab").click(function() {
-        setInterval(function(){
-             $('#calendar').fullCalendar('render');
-        }, 100);
-       
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    modal.style.opacity = 0;
+};
+
+function ok_button() {
+    var dd = d1.getDate();
+    var mm = d1.getMonth() + 1; //January is 0!
+
+    var yyyy = d1.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var date_str = mm + '-' + dd + '-' + yyyy;
+    console.log(date_str);
+    console.log(new Date(date_str + " " + $("#starting_date").val()));
+    modal.style.display = "none";
+    modal.style.opacity = 0;
+    $.ajax({
+        url :"http://195.83.139.38:1201/booking",
+        method:"post",
+        dataType: "json",
+        data: {
+            "starting_date": new Date(date_str + " " + $("#starting_date").val()).toUTCString(),
+            "ending_date":  new Date(date_str + " " + $("#ending_date").val()).toUTCString(),
+            "user_id": localStorage["user_id"]
+        }
+    })
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        modal.style.opacity = 0;
+    }
+};
+
+var vbat = document.getElementById('vbat');
+var mppt_o = document.getElementById('mppt_o');
+var chart = {},
+    d = [];
+$.ajax({
+        url: "http://195.83.139.38:1201/abri/last",
+        method: "get",
+        dataType: "json"
+    })
+    .done(function(data, text, jqXHR) {
+        vbat.innerHTML = data.v_bat + " V";
+        mppt_o.innerHTML = data.mppt_o + " W";
     });
+
+
+$.ajax({
+        url: "http://195.83.139.38:1201/booking",
+        method: "get",
+        dataType: "json"
+    })
+    .done(function(data, text, jqXHR) {
+        var ze_events = [],
+            i = 0;
+        data.forEach(function(line) {
+            ze_events.push({
+                resourceId: line.bike_id,
+                start: new Date(new Date(line.starting_date).getTime() + new Date().getTimezoneOffset() * 60000),
+                end: new Date(new Date(line.ending_line).getTime() + new Date().getTimezoneOffset() * 60000),
+                id: i
+            });
+            i++;
+        });
+        doAgenda(ze_events);
+    });
+setInterval(function() {
+    $.ajax({
+            url: "http://195.83.139.38:1201/booking",
+            method: "get",
+            dataType: "json"
+        })
+        .done(function(data, text, jqXHR) {
+            var ze_events = [],
+                i = 0;
+            data.forEach(function(line) {
+                ze_events.push({
+                    resourceId: line.bike_id,
+                    start: new Date(new Date(line.starting_date).getTime() + new Date().getTimezoneOffset() * 60000),
+                    end: new Date(new Date(line.ending_line).getTime() + new Date().getTimezoneOffset() * 60000),
+                    id: i
+                });
+                i++;
+            });
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', ze_events);
+            $('#calendar').fullCalendar('rerenderEvents');
+        });
+}, 10000);
+
+$.ajax({
+        url: "http://195.83.139.38:1201/abri",
+        method: "get",
+        dataType: "json"
+    })
+    .done(function(data, text, jqXHR) {
+        var i;
+        for (i = 0; i < data.length; i++) {
+            var totalSec = data[i].time;
+            var hours = parseInt(totalSec / 3600) % 24;
+            var minutes = parseInt(totalSec / 60) % 60;
+            var seconds = totalSec % 60;
+
+            var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds < 10 ? "0" + seconds : seconds);
+            d.push({
+                time: new Date(data[i].time * 1000),
+                vbat: data[i].mppt_o
+            });
+        }
+        d.reverse();
+        chart = AmCharts.makeChart("chartdiv", {
+            "type": "serial",
+            "theme": "light",
+            "marginRight": 16,
+            "marginTop": 7,
+            "autoMarginOffset": 0,
+            "dataProvider": d,
+            "valueAxes": [{
+                "axisAlpha": 0.2,
+                "dashLength": 1,
+                "position": "left",
+                "unit": " W",
+            }],
+            "mouseWheelZoomEnabled": true,
+            "graphs": [{
+                "id": "g1",
+                "fillColors": "#53da1d",
+                "lineColor": "#53da1d",
+                "hideBulletsCount": 50,
+                "title": "red line",
+                "valueField": "vbat",
+                "useLineColorForBulletBorder": true,
+            }],
+            "chartScrollbar": {
+                "autoGridCount": true,
+                "graph": "g1",
+                "scrollbarHeight": 22
+            },
+            "chartCursor": {
+                "limitToGraph": "g1"
+            },
+            "categoryField": "time",
+            "categoryAxis": {
+                "parseDates": true,
+                "minPeriod": "ss",
+                /* change to mm when in prod */
+                "axisColor": "#DADADA",
+                "dashLength": 1,
+                "minorGridEnabled": true
+            },
+        });
+
+        chart.addListener("rendered", zoomChart);
+        zoomChart();
+    });
+
+// this method is called when chart is first inited as we listen for "rendered" event
+function zoomChart() {
+    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+    chart.zoomToIndexes(d.length - 3000, d.length - 1);
+};
+
+function doAgenda(ze_events) {
+    var position = document.getElementById('top_tabs').getBoundingClientRect();
+    var bottom = position.bottom;
+
+    $('#calendar').fullCalendar({
+        editable: false, // enable draggable events
+        height: window.screen.height - bottom - 50,
+        allDaySlot: false,
+        selectable: true,
+        timeFormat: 'HH:mm',
+        displayEventTime: false,
+        scrollTime: '08:00', // undo default 6am scrollTime
+        header: {
+            left: 'today prev,next',
+            center: 'title',
+            right: ''
+        },
+        businessHours: {
+            start: '08:00', // a start time (10am in this example)
+            end: '20:00', // an end time (6pm in this example)  
+            dow: [1, 2, 3, 4, 5, 6, 0]
+        },
+        defaultView: 'agendaWeek',
+        views: {
+            agendaTwoDay: {
+                type: 'agenda',
+                duration: {
+                    days: 10
+                },
+                // views that are more than a day will NOT do this behavior by default
+                // so, we need to explicitly enable it
+                groupByResource: true
+
+                //// uncomment this line to group by day FIRST with resources underneath
+                //groupByDateAndResource: true
+            }
+        },
+        resourceLabelText: 'Vélo',
+        resources: [{
+            id: '1',
+            title: 'Vélo 1',
+            eventColor: 'green'
+        }, {
+            id: '2',
+            title: 'Vélo 2',
+            eventColor: '#2e7910'
+        }, {
+            id: '3',
+            title: 'Vélo 3',
+            eventColor: '#53da1d'
+        }, ],
+        events: ze_events,
+        eventClick: function(calEvent, jsEvent, view) {
+            alert('Event: ' + calEvent.constraint);
+            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            alert('View: ' + view.name);
+        },
+        dayClick: function(d, jsEvent, view, resource) {
+            d1 = new Date(d.format());
+            var date = new Date(d1.getTime() + new Date().getTimezoneOffset() * 60000);
+            var str = (date.getHours() < 10 ? '0' : '') + date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+            $("#starting_date").val(str);
+
+            modal.style.display = "block";
+            modal.style.opacity = 1;
+        }
+    });
+};
+
+$("#resa_tab").click(function() {
+    setInterval(function() {
+        $('#calendar').fullCalendar('render');
+    }, 100);
+
+});
     </script>
   </body>
 </html>
-

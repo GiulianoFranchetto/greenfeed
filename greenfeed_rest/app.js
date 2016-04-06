@@ -77,17 +77,22 @@ app.get('/user', function(req, res){
         if(!values.length) {
             return res.status(403).send('{"status": "KO"}');
         }
+        console.log("Sending :");
+        console.log(JSON.stringify(values[0]));
         return res.status(200).send(values[0]);
     });
 });
 
 app.post('/booking', function(req, res){
     // first we check that a bike is available at this time
+    console.log("Checking if a new booking can be created");
     Booking.find({"starting_date" : {"$lte": req.body.starting_date}, "ending_date": {"$gte": req.body.ending_date}})
         .exec(function(err, values){
         if (err) {
             res.sendStatus(500);
         }
+        console.log("These booking have been found on the corresponding period" + JSON.stringify(values));
+
         var available_bikes = [1, 2, 3];
         values.forEach(function(line){
             var i = available_bikes.indexOf(line.bike_id);
@@ -95,7 +100,8 @@ app.post('/booking', function(req, res){
                 available_bikes.splice(i, 1);
             }
         });
-        if(!available_bikes.length){
+        console.log("The following bikes are available: " + JSON.stringify(available_bikes));
+        if(available_bikes.length === 0){
             return res.status(500).send('{"status": "KO"}');
         }
         var chosen_bike = available_bikes[0];
