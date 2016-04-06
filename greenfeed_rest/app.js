@@ -37,8 +37,16 @@ var AbriSchema = new mongoose.Schema({
     time: Number
 });
 
+var BookingSchema = new mongoose.Schema({
+    starting_date: Date,
+    ending_date: Date,
+    user_id: String,
+    bike_id: Number
+});
+
 var User = mongoose.model('user', UserSchema, 'user');
 var Abri = mongoose.model('abri', AbriSchema, 'abri');
+var Booking = mongoose.model('booking', BookingSchema, 'booking');
 
 /* Get all entries for "Abri" */
 app.get('/abri', function(req, res){
@@ -69,7 +77,55 @@ app.get('/user', function(req, res){
         if(!values.length) {
             return res.status(403).send('{"status": "KO"}');
         }
-        return res.status(200).send('{"status": "OK"}');
+        return res.status(200).send(values[0]);
+    });
+});
+
+app.post('/booking', function(req, res){
+    // first we check that a bike is available at this time
+    Booking.find({"starting_date" : {"$lte": req.body.starting_date}, "ending_date": {"$gte": req.body.ending_date}})
+        .exec(function(err, values){
+        if (err) {
+            res.sendStatus(500);
+        }
+        var available_bikes = [1, 2, 3];
+        values.forEach(function(line){
+            var i = available_bikes.indexOf(line.bike_id);
+            if(i !== -1) {
+                available_bikes.splice(i, 1);
+            }
+        });
+        if(!available_bikes.length){
+            return res.status(500).send('{"status": "KO"}');
+        }
+        var chosen_bike = available_bikes[0];
+        var new_book = new Booking({
+            starting_date: req.body.starting_date,
+            ending_date: req.body.ending_date,
+            user_id: req.body.user_id,
+            bike_id: chosen_bike
+        });
+        new_book.save(function (err, new_book) {
+            if (err) {
+                return res.status(500).send('{"status": "KO"}');
+            } else {
+                Booking.find({"starting_date" : {"$gte": new Date()}}).exec(function(err, values){
+                    if (err) {
+                        res.sendStatus(500);
+                    }
+                    res.status(200).send(values);
+                });
+            }
+        });
+    });
+});
+
+app.get('/booking', function(req, res){
+    Booking.find({"starting_date" : {"$gte": new Date()}}).exec(function(err, values){
+        if (err) {
+            res.sendStatus(500);
+        }
+        res.status(200).send(values);
     });
 });
 
