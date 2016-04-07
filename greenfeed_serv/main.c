@@ -1,3 +1,4 @@
+#define _GNU_SOURCE /* for tm_gmtoff and tm_zone */
 /**
  * \file main.c
  * \brief This file is the entry of the main program to communicate with the Kerlink IoT station.
@@ -10,6 +11,8 @@
 #include <manage_upstream.h>
 #include <manage_downstream.h>
 #include <mongo_connector.h>
+#include <parson.h>
+#include <time.h>
 
 pthread_t thread_manage_upstream, thread_manage_downstream;
 bool stop_thread_upstream = false, stop_thread_downstream = false;

@@ -1,6 +1,5 @@
 #include <types.h>
 #include <netinet/in.h>
-#include <unistd.h>
 #include <downstream_packet.h>
 #include <stdio.h>
 #include <parson.h>
@@ -43,14 +42,15 @@ metadata that will have to be emitted by the gateway.
  ncrc | bool   | If true, disable the CRC of the physical layer (optional)
  */
 
-typedef struct __attribute__((__packed__)){
+typedef struct __attribute__((__packed__)) {
     byte protocol;
     byte unused[2];
     byte id;
     char data[2048];
-}pull_resp;
+} pull_resp;
 
-int send_downstream_message(SOCKET socket, struct sockaddr_in from, socklen_t size, downstream_packet packet, bool use_minimum_data) {
+int send_downstream_message(SOCKET socket, struct sockaddr_in from, socklen_t size, downstream_packet packet,
+                            bool use_minimum_data) {
     pull_resp response = {0};
 
     JSON_Value *root_value = json_value_init_object();
@@ -63,7 +63,7 @@ int send_downstream_message(SOCKET socket, struct sockaddr_in from, socklen_t si
     base64_encode_block(packet.data, packet.payload_size, payload_b64, &state_in);
 
     char *serialized_string = NULL;
-    if(use_minimum_data) {
+    if (use_minimum_data) {
         json_object_dotset_boolean(root_object, "txpk.imme", true);
         json_object_dotset_number(root_object, "txpk.freq", packet.frequency);
         json_object_dotset_number(root_object, "txpk.powe", packet.power);
@@ -79,10 +79,13 @@ int send_downstream_message(SOCKET socket, struct sockaddr_in from, socklen_t si
         response.id = 3;
         strcpy(response.data, serialized_string);
 
+        printf("Sending message %s to IoT station (ascii)\n", packet.data);
         printf("Sending %s to IoT station\n", response.data);
         sendto(socket, &response, sizeof(response), 0, (struct sockaddr *) &from, size);
 
         json_free_serialized_string(serialized_string);
         json_value_free(root_value);
     }
+
+    return 0;
 }

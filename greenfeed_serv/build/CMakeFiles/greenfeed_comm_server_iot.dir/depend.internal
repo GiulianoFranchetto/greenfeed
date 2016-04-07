@@ -11,6 +11,7 @@ CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o
  ../includes/query_result.h
  ../includes/types.h
  ../includes/upstream_packet.h
+ ../parson/parson.h
  /home/yocto/Desktop/greenfeed/greenfeed_serv/main.c
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o
  /home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c
@@ -27,7 +28,9 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o
  /home/yocto/Desktop/greenfeed/greenfeed_serv/src/manage_downstream.c
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o
  ../includes/constants.h
+ ../includes/downstream_packet.h
  ../includes/iot_push_data.h
+ ../includes/manage_downstream.h
  ../includes/manage_upstream.h
  ../includes/mongo_connector.h
  ../includes/query_result.h
@@ -47,7 +50,6 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o
  ../parson/parson.h
  /home/yocto/Desktop/greenfeed/greenfeed_serv/src/parse_upstream_json.c
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o
- ../includes/b64/cdecode.h
  ../includes/upstream_packet.h
  /home/yocto/Desktop/greenfeed/greenfeed_serv/src/print_upstream_packet.c
 CMakeFiles/greenfeed_comm_server_iot.dir/src/send_downstream_message.c.o

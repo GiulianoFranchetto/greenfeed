@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <b64/cdecode.h>
 
 
 /*
@@ -23,8 +22,7 @@
  size | number | RF packet payload size in bytes (unsigned integer)
  data | string | Base64 encoded RF packet payload, padded
  */
-void print_upstream_packet(upstream_packet packet)
-{
+void print_upstream_packet(upstream_packet packet) {
     printf("Stat:\n"
                    "******************\n"
                    "time: %s\n"

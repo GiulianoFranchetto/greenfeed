@@ -197,8 +197,8 @@ function ok_button() {
         method:"post",
         dataType: "json",
         data: {
-            "starting_date": new Date(new Date(date_str + " " + $("#starting_date").val()).getTime() - new Date().getTimezoneOffset() * 60000).toUTCString(),
-            "ending_date":  new Date(new Date(date_str + " " + $("#ending_date").val()).getTime() - new Date().getTimezoneOffset() * 60000).toUTCString(),
+            "starting_date": new Date(date_str + " " + $("#starting_date").val()).getTime(),
+            "ending_date":  new Date(date_str + " " + $("#ending_date").val()).getTime(),
             "user_id": localStorage["user_id"]
         }
     })
@@ -208,8 +208,8 @@ function ok_button() {
             data.forEach(function(line) {               
                 ze_events.push({
                     resourceId: line.bike_id,
-                    start: new Date(line.starting_date).getTime(),
-                    end: new Date(line.ending_date).getTime(),
+                    start: new Date(new Date(line.starting_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
+                    end: new Date(new Date(line.ending_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
                     id: i
                 });
                 i++;
@@ -256,8 +256,8 @@ $.ajax({
         data.forEach(function(line) {
             ze_events.push({
                 resourceId: line.bike_id,
-                start: new Date(line.starting_date).getTime(),
-                end: new Date(line.ending_date).getTime(),
+                start: new Date(new Date(line.starting_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
+                    end: new Date(new Date(line.ending_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
                 id: i
             });
             i++;
@@ -276,8 +276,8 @@ setInterval(function() {
             data.forEach(function(line) {
                 ze_events.push({
                     resourceId: line.bike_id,
-                    start: new Date(line.starting_date).getTime(),
-                    end: new Date(line.ending_date).getTime(),
+                    start: new Date(new Date(line.starting_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
+                    end: new Date(new Date(line.ending_date).getTime() - new Date().getTimezoneOffset() * 60000).getTime(),
                     id: i
                 });
                 i++;

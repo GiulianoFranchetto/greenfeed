@@ -37,5 +37,7 @@ void *manage_downstream(void *r);
 extern pthread_t thread_manage_downstream;  /**< The pthread_t used for the manage_downstream thread */
 extern bool stop_thread_downstream;         /**< A boolean which must set to true to stop the thread */
 extern int downstream_error;                /**< The number of error this thread made */
+extern SOCKET down_sock;                    /**< The downstream socket */
+extern struct sockaddr_in from;
 
 #endif //GREENFEED_COMM_SERVER_IOT_MANAGE_DOWNSTREAM_H

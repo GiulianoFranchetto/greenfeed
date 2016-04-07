@@ -27,6 +27,7 @@ var UserSchema = new mongoose.Schema({
     firstname: String,
     email: String,
     password: String,
+    uid: String,
     created_at: { type: Date, default: Date.now }
 });
 
@@ -38,8 +39,8 @@ var AbriSchema = new mongoose.Schema({
 });
 
 var BookingSchema = new mongoose.Schema({
-    starting_date: Date,
-    ending_date: Date,
+    starting_date: Number,
+    ending_date: Number,
     user_id: String,
     bike_id: Number
 });
@@ -114,10 +115,12 @@ app.post('/booking', function(req, res){
         });
         new_book.save(function (err, new_book) {
             if (err) {
+                console.log(err);
                 return res.status(500).send('{"status": "KO"}');
             } else {
-                Booking.find({"starting_date" : {"$gte": new Date()}}).exec(function(err, values){
+                Booking.find({"starting_date" : {"$gte": new Date().getTime()}}).exec(function(err, values){
                     if (err) {
+                        console.log(err);
                         res.sendStatus(500);
                     }
                     res.status(200).send(values);
@@ -128,12 +131,16 @@ app.post('/booking', function(req, res){
 });
 
 app.get('/booking', function(req, res){
-    Booking.find({"starting_date" : {"$gte": new Date()}}).exec(function(err, values){
+    Booking.find({"starting_date" : {"$gte": new Date().getTime()}}).exec(function(err, values){
         if (err) {
             res.sendStatus(500);
         }
         res.status(200).send(values);
     });
+});
+
+process.on('uncaughtException', function (error) {
+    console.log(error.stack);
 });
 
 /* Our 404 */

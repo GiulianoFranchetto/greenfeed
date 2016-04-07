@@ -10,6 +10,7 @@ CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/mongo_connector.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/query_result.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/types.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/upstream_packet.h
+CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../parson/parson.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../main.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o: ../parson/parson.c
@@ -26,7 +27,9 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o: ../includes/
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_downstream.c.o: ../src/manage_downstream.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/constants.h
+CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/downstream_packet.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/iot_push_data.h
+CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/manage_downstream.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/manage_upstream.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/mongo_connector.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/manage_upstream.c.o: ../includes/query_result.h
@@ -46,7 +49,6 @@ CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o: ../include
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o: ../parson/parson.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/parse_upstream_json.c.o: ../src/parse_upstream_json.c
 
-CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o: ../includes/b64/cdecode.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o: ../includes/upstream_packet.h
 CMakeFiles/greenfeed_comm_server_iot.dir/src/print_upstream_packet.c.o: ../src/print_upstream_packet.c
 

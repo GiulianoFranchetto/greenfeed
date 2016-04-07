@@ -9,6 +9,7 @@
 #include <parson.h>
 #include <bson.h>
 #include <mongo_connector.h>
+#include <manage_downstream.h>
 
 /**
 3. Upstream protocol
@@ -50,8 +51,7 @@ received, and associated metadata, to the server.
  4-11   | Gateway unique identifier (MAC address)
  12-end | JSON object, starting with {, ending with }, see section 4
  */
-static void print_push_data(iot_push_data data)
-{
+static void print_push_data(iot_push_data data) {
     printf("Protocol version: 0x%2.2X\n"
                    "Tokens: 0x%2.2X 0x%2.2X\n"
                    "Push ID: 0x%2.2X\n"
@@ -76,8 +76,7 @@ PUSH_DATA packets received.
  1-2    | same token as the PUSH_DATA packet to acknowledge
  3      | PUSH_ACK identifier 0x01
  */
-static int send_push_ack(SOCKET socket, iot_push_data data, struct sockaddr_in from, socklen_t size)
-{
+static int send_push_ack(SOCKET socket, iot_push_data data, struct sockaddr_in from, socklen_t size) {
     byte ack[4];
     ack[0] = 1;
     ack[1] = data.token[0];
@@ -86,13 +85,16 @@ static int send_push_ack(SOCKET socket, iot_push_data data, struct sockaddr_in f
     return sendto(socket, ack, 4, 0, (struct sockaddr *) &from, size) < 0 ? errno : 0;
 }
 
-static int understand_upstream_packet(upstream_packet packet){
+static int understand_upstream_packet(upstream_packet packet) {
     JSON_Value *root_value = NULL;
     JSON_Object *root_object = NULL;
     JSON_Object *abri_object = NULL;
+    JSON_Object *demande_object = NULL;
+
     char *payload;
     rxpk *cursor = packet.packets;
     bson_t *doc = bson_new();
+
     bson_oid_t oid;
 
     while (cursor != NULL) {
@@ -109,15 +111,59 @@ static int understand_upstream_packet(upstream_packet packet){
             double pbat = json_object_dotget_number(abri_object, "p_bat");
             double mppto = json_object_dotget_number(abri_object, "mppt_o");
             time_t t = time(NULL);
-            bson_oid_init (&oid, NULL);
+            bson_oid_init(&oid, NULL);
             BSON_APPEND_OID (doc, "_id", &oid);
             BSON_APPEND_INT64(doc, "time", t);
             BSON_APPEND_DOUBLE(doc, "v_bat", vbat);
             BSON_APPEND_DOUBLE(doc, "p_bat", pbat);
             BSON_APPEND_DOUBLE(doc, "mppt_o", mppto);
-            if( 0 != mongo_add_document(mongo_client, "greenfeed", "abri", doc)){
+            if (0 != mongo_add_document(mongo_client, "greenfeed", "abri", doc)) {
                 return -1;
             };
+            bson_free(doc);
+        }
+
+        demande_object = json_object_get_object(root_object, "demande");
+        if (demande_object != NULL) {
+            const char *uid = json_object_get_string(demande_object, "uid");
+            query_result *result = malloc(sizeof(query_result));
+            result->document = NULL;
+            bson_t *request = bson_new();
+            bson_t *query_sub_query_1 = bson_new();
+            bson_t *query_sub_query_2 = bson_new();
+
+            time_t timer;
+            time(&timer);
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+            BSON_APPEND_INT64(query_sub_query_1, "$lte", tv.tv_sec * 1000);
+            BSON_APPEND_DOCUMENT(request, "starting_date", query_sub_query_1);
+
+            BSON_APPEND_INT64(query_sub_query_2, "$gte", timer * 1000);
+            BSON_APPEND_DOCUMENT(request, "ending_date", query_sub_query_2);
+
+            BSON_APPEND_UTF8(request, "uid", uid);
+
+            printf("Request: %s\n", bson_as_json(request, NULL));
+            if (0 == mongo_get_documents(mongo_client, "greenfeed", "booking", request, &result)) {
+                downstream_packet down_packet = {0};
+                down_packet.frequency = 868.3;
+                down_packet.rf_channel = 0;
+                down_packet.i_polarization = false;
+                down_packet.power = 14;
+                down_packet.data = malloc(18);
+                if (result->document != NULL)
+                    strcpy(down_packet.data, "{\"authorize\": 1}");
+                else
+                    strcpy(down_packet.data, "{\"authorize\": 0}");
+                down_packet.payload_size = 17;
+
+                send_downstream_message(down_sock, from, sizeof(struct sockaddr_in), down_packet, true);
+            }
+            bson_free(query_sub_query_1);
+            bson_free(query_sub_query_2);
+            bson_free(request);
         }
         cursor = cursor->next;
         json_value_free(root_value);
@@ -125,8 +171,7 @@ static int understand_upstream_packet(upstream_packet packet){
     return 0;
 }
 
-void *manage_upstream(void *r)
-{
+void *manage_upstream(void *r) {
     struct sockaddr_in sin = {0}, from = {0};
     SOCKET sock;
     iot_push_data push_data = {{0}};
@@ -155,8 +200,8 @@ void *manage_upstream(void *r)
 
     while (!stop_thread_upstream) {
 
-        while(recvfrom(sock, push_data.msg, sizeof(push_data.msg) - 1, 0, (struct sockaddr *) &from, &incomming_size) <
-            0) {
+        while (recvfrom(sock, push_data.msg, sizeof(push_data.msg) - 1, 0, (struct sockaddr *) &from, &incomming_size) <
+               0) {
             printf("Error when receiving upstream message (err %d). This is error %d over %d\n", errno,
                    upstream_error++, MAX_UPSTREAM_ERROR);
 

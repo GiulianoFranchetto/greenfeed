@@ -34,33 +34,13 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
-          <root url="file://$MODULE_DIR$/includes" />
-          <root url="file://$MODULE_DIR$/parson" />
         </CLASSES>
         <SOURCES>
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
-          <root url="file://$MODULE_DIR$/includes" />
-          <root url="file://$MODULE_DIR$/parson" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/includes/downstream_packet.h" />
-          <root url="file://$MODULE_DIR$/includes/types.h" />
-          <root url="file://$MODULE_DIR$/includes/iot_pull_data.h" />
-          <root url="file://$MODULE_DIR$/includes/manage_upstream.h" />
-          <root url="file://$MODULE_DIR$/includes/mongo_connector.h" />
-          <root url="file://$MODULE_DIR$/includes/b64/cdecode.h" />
-          <root url="file://$MODULE_DIR$/includes/b64/cencode.h" />
-          <root url="file://$MODULE_DIR$/includes/manage_downstream.h" />
-          <root url="file://$MODULE_DIR$/includes/query_result.h" />
-          <root url="file://$MODULE_DIR$/includes/iot_push_data.h" />
-          <root url="file://$MODULE_DIR$/includes/constants.h" />
-          <root url="file://$MODULE_DIR$/includes/upstream_packet.h" />
-          <root url="file://$MODULE_DIR$/parson/parson.c" />
-          <root url="file://$MODULE_DIR$/parson/parson.h" />
-        </excluded>
       </library>
     </orderEntry>
   </component>

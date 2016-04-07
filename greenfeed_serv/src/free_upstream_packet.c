@@ -1,8 +1,7 @@
 #include <upstream_packet.h>
 #include <malloc.h>
 
-void free_upstream_packet(upstream_packet *packet)
-{
+void free_upstream_packet(upstream_packet *packet) {
     rxpk *next_node = NULL;
 
     if (packet->packets == NULL) {

@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <manage_downstream.h>
 #include <string.h>
-#include <downstream_packet.h>
 #include <unistd.h>
 
 /**
@@ -62,8 +61,7 @@ route stays open for the server to be used at any time.
  3      | PULL_DATA identifier 0x02
  4-11   | Gateway unique identifier (MAC address)
  */
-static void print_pull_data(iot_pull_data data)
-{
+static void print_pull_data(iot_pull_data data) {
     printf("Protocol version: 0x%2.2X\n"
                    "Tokens: 0x%2.2X 0x%2.2X\n"
                    "Push ID: 0x%2.2X\n"
@@ -88,8 +86,11 @@ open and that the server can send PULL_RESP packets at any time.
  1-2    | same token as the PULL_DATA packet to acknowledge
  3      | PULL_ACK identifier 0x04
  */
-static int send_pull_ack(SOCKET socket, iot_pull_data data, struct sockaddr_in from, socklen_t size)
-{
+
+SOCKET down_sock;
+struct sockaddr_in from;
+
+static int send_pull_ack(SOCKET socket, iot_pull_data data, struct sockaddr_in from, socklen_t size) {
     byte ack[4];
     ack[0] = 1;
     ack[1] = data.token[0];
@@ -99,18 +100,16 @@ static int send_pull_ack(SOCKET socket, iot_pull_data data, struct sockaddr_in f
 }
 
 
-void *manage_downstream(void *r)
-{
-    struct sockaddr_in sin = {0}, from = {0};
-    SOCKET sock;
+void *manage_downstream(void *r) {
+    struct sockaddr_in sin = {0};
     iot_pull_data pull_data = {{0}};
     socklen_t incomming_size = 0;
 
     printf("Lauching new worker: manage the downstream.\n");
     printf("Creating udp socket on port 3002.\n");
 
-    sock = socket(AF_INET, SOCK_DGRAM, 0);
-    if (sock == INVALID_SOCKET) {
+    down_sock = socket(AF_INET, SOCK_DGRAM, 0);
+    if (down_sock == INVALID_SOCKET) {
         printf("Couldn't open the udp socket (err %d)\nExiting the main program.\n", errno);
         exit(errno);
     }
@@ -120,7 +119,7 @@ void *manage_downstream(void *r)
     sin.sin_family = AF_INET;
     sin.sin_port = htons(3002);
 
-    if (bind(sock, (struct sockaddr *) &sin, sizeof sin) == SOCKET_ERROR) {
+    if (bind(down_sock, (struct sockaddr *) &sin, sizeof sin) == SOCKET_ERROR) {
         printf("Couldn't bind the newly created socket on port 3002 (err %d)\nExiting the main program.\n", errno);
         exit(errno);
     }
@@ -129,7 +128,7 @@ void *manage_downstream(void *r)
 
     while (!stop_thread_downstream) {
 
-        while (recvfrom(sock, pull_data.msg, sizeof(pull_data.msg) - 1, 0, (struct sockaddr *) &from, &incomming_size) <
+        while (recvfrom(down_sock, pull_data.msg, sizeof(pull_data.msg) - 1, 0, (struct sockaddr *) &from, &incomming_size) <
                0) {
             printf("Error when receiving downstream message (err %d). This is error %d over %d\n", errno,
                    downstream_error++, MAX_DOWNSTREAM_ERROR);
@@ -138,7 +137,7 @@ void *manage_downstream(void *r)
                 printf("Maximum error count reached. Trying to close the re-initialize the socket.\n");
             }
         }
-        if (0 > send_pull_ack(sock, pull_data, from, incomming_size)) {
+        if (0 > send_pull_ack(down_sock, pull_data, from, incomming_size)) {
             printf("Error when sending ACK to IoT station\n");
         }
 
@@ -152,10 +151,10 @@ void *manage_downstream(void *r)
         strcpy(down_packet.data, "Coucou");
         down_packet.payload_size = 6;
 
-        send_downstream_message(sock, from, incomming_size, down_packet, true);*/
+        send_downstream_message(down_sock, from, incomming_size, down_packet, true);*/
 
     }
 
-    close(sock);
+    close(down_sock);
     return NULL;
 }
