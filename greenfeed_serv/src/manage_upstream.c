@@ -109,6 +109,7 @@ static int understand_upstream_packet(upstream_packet packet) {
         if (abri_object != NULL) {
             double vbat = json_object_dotget_number(abri_object, "v_bat");
             double pbat = json_object_dotget_number(abri_object, "p_bat");
+            double mppti = json_object_dotget_number(abri_object, "mppt_i");
             double mppto = json_object_dotget_number(abri_object, "mppt_o");
             time_t t = time(NULL);
             bson_oid_init(&oid, NULL);
@@ -116,6 +117,7 @@ static int understand_upstream_packet(upstream_packet packet) {
             BSON_APPEND_INT64(doc, "time", t);
             BSON_APPEND_DOUBLE(doc, "v_bat", vbat);
             BSON_APPEND_DOUBLE(doc, "p_bat", pbat);
+            BSON_APPEND_DOUBLE(doc, "mppt_i", mppti);
             BSON_APPEND_DOUBLE(doc, "mppt_o", mppto);
             if (0 != mongo_add_document(mongo_client, "greenfeed", "abri", doc)) {
                 return -1;
