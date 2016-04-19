@@ -66,7 +66,7 @@ void loop()
         println_debug();
         
         if(id == 0x49) {
-            Serial.println(buf);
+            Serial.println(buf+1);
         }
     }
     
