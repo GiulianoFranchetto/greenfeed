@@ -11,7 +11,6 @@ CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o
  ../includes/query_result.h
  ../includes/types.h
  ../includes/upstream_packet.h
- ../parson/parson.h
  /home/yocto/Desktop/greenfeed/greenfeed_serv/main.c
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o
  /home/yocto/Desktop/greenfeed/greenfeed_serv/parson/parson.c

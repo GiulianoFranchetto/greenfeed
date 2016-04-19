@@ -143,7 +143,7 @@ static int understand_upstream_packet(upstream_packet packet) {
             BSON_APPEND_INT64(query_sub_query_2, "$gte", timer * 1000);
             BSON_APPEND_DOCUMENT(request, "ending_date", query_sub_query_2);
 
-            BSON_APPEND_UTF8(request, "uid", uid);
+            BSON_APPEND_UTF8(request, "user_id", uid);
 
             printf("Request: %s\n", bson_as_json(request, NULL));
             if (0 == mongo_get_documents(mongo_client, "greenfeed", "booking", request, &result)) {

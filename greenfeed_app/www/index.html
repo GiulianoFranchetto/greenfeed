@@ -128,7 +128,7 @@
                         alert("Erreur de connexion");
                     else {    
                         console.log(data);
-                        localStorage["user_id"] = data._id;
+                        localStorage["user_id"] = data.uid;
                         window.location = "dashboard.html";
                     }
                 });               

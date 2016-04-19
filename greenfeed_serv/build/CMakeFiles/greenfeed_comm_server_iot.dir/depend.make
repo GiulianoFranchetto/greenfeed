@@ -10,7 +10,6 @@ CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/mongo_connector.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/query_result.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/types.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../includes/upstream_packet.h
-CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../parson/parson.h
 CMakeFiles/greenfeed_comm_server_iot.dir/main.c.o: ../main.c
 
 CMakeFiles/greenfeed_comm_server_iot.dir/parson/parson.c.o: ../parson/parson.c

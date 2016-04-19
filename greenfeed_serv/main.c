@@ -11,8 +11,6 @@
 #include <manage_upstream.h>
 #include <manage_downstream.h>
 #include <mongo_connector.h>
-#include <parson.h>
-#include <time.h>
 
 pthread_t thread_manage_upstream, thread_manage_downstream;
 bool stop_thread_upstream = false, stop_thread_downstream = false;
