@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/parson/parson.h
+stddef.h
+-
+
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/parson.c
+parson/parson.h
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/parson/parson.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+ctype.h
+-
+math.h
+-
+

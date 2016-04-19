@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed/greenfeed_rpi/build
 # Target rules for target CMakeFiles/greenfeed_rpi.dir
 
 # All Build rule for target.
-CMakeFiles/greenfeed_rpi.dir/all:
+CMakeFiles/greenfeed_rpi.dir/all: CMakeFiles/parson.dir/all
 	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/depend
 	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target greenfeed_rpi"
@@ -76,7 +76,7 @@ all: CMakeFiles/greenfeed_rpi.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/greenfeed_rpi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/greenfeed_rpi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 0
 .PHONY : CMakeFiles/greenfeed_rpi.dir/rule
@@ -93,6 +93,43 @@ CMakeFiles/greenfeed_rpi.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/greenfeed_rpi.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/parson.dir
+
+# All Build rule for target.
+CMakeFiles/parson.dir/all:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/depend
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles --progress-num=6,7 "Built target parson"
+.PHONY : CMakeFiles/parson.dir/all
+
+# Include target in all.
+all: CMakeFiles/parson.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/parson.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/parson.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 0
+.PHONY : CMakeFiles/parson.dir/rule
+
+# Convenience name for target.
+parson: CMakeFiles/parson.dir/rule
+
+.PHONY : parson
+
+# clean rule for target.
+CMakeFiles/parson.dir/clean:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/clean
+.PHONY : CMakeFiles/parson.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/parson.dir/clean
 
 .PHONY : clean
 

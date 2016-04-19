@@ -74,6 +74,10 @@ modbus-tcp.h
 modbus-rtu.h
 ../includes/modbus/modbus-rtu.h
 
+../includes/parson/parson.h
+stddef.h
+-
+
 /home/yocto/Desktop/greenfeed/greenfeed_rpi/Regulateur.cpp
 Regulateur.h
 -
@@ -82,10 +86,6 @@ string.h
 unistd.h
 -
 iostream
--
-errno.h
--
-stdlib.h
 -
 
 /home/yocto/Desktop/greenfeed/greenfeed_rpi/UsbComm.cpp
@@ -104,5 +104,7 @@ iostream
 UsbComm.h
 -
 Regulateur.h
+-
+parson/parson.h
 -
 

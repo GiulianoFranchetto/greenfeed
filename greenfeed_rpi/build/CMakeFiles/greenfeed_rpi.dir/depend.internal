@@ -22,4 +22,5 @@ CMakeFiles/greenfeed_rpi.dir/main.cpp.o
  ../includes/modbus/modbus-tcp.h
  ../includes/modbus/modbus-version.h
  ../includes/modbus/modbus.h
+ ../includes/parson/parson.h
  /home/yocto/Desktop/greenfeed/greenfeed_rpi/main.cpp

@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed/greenfeed_rpi/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,6 +122,19 @@ greenfeed_rpi: cmake_check_build_system
 greenfeed_rpi/fast:
 	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/build
 .PHONY : greenfeed_rpi/fast
+
+#=============================================================================
+# Target rules for targets named parson
+
+# Build rule for target.
+parson: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 parson
+.PHONY : parson
+
+# fast build rule for target.
+parson/fast:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/build
+.PHONY : parson/fast
 
 Regulateur.o: Regulateur.cpp.o
 
@@ -231,15 +244,43 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+parson.o: parson.c.o
+
+.PHONY : parson.o
+
+# target to build an object file
+parson.c.o:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/parson.c.o
+.PHONY : parson.c.o
+
+parson.i: parson.c.i
+
+.PHONY : parson.i
+
+# target to preprocess a source file
+parson.c.i:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/parson.c.i
+.PHONY : parson.c.i
+
+parson.s: parson.c.s
+
+.PHONY : parson.s
+
+# target to generate assembly for a file
+parson.c.s:
+	$(MAKE) -f CMakeFiles/parson.dir/build.make CMakeFiles/parson.dir/parson.c.s
+.PHONY : parson.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... greenfeed_rpi"
+	@echo "... edit_cache"
+	@echo "... parson"
 	@echo "... Regulateur.o"
 	@echo "... Regulateur.i"
 	@echo "... Regulateur.s"
@@ -252,6 +293,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parson.o"
+	@echo "... parson.i"
+	@echo "... parson.s"
 .PHONY : help
 
 

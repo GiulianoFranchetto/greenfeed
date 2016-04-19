@@ -1,1 +1,1 @@
-arm-linux-gnueabihf-g++    -std=c++11   CMakeFiles/greenfeed_rpi.dir/main.cpp.o CMakeFiles/greenfeed_rpi.dir/Regulateur.cpp.o CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.o CMakeFiles/greenfeed_rpi.dir/base64.cpp.o  -o greenfeed_rpi -rdynamic -lpthread -lmodbus 
+/usr/bin/c++    -std=c++11   CMakeFiles/greenfeed_rpi.dir/main.cpp.o CMakeFiles/greenfeed_rpi.dir/Regulateur.cpp.o CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.o CMakeFiles/greenfeed_rpi.dir/base64.cpp.o  -o greenfeed_rpi -rdynamic -lpthread libparson.so -lmodbus -Wl,-rpath,/home/yocto/Desktop/greenfeed/greenfeed_rpi/build 

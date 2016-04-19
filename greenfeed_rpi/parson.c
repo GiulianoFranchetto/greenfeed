@@ -24,7 +24,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "parson.h"
+#include "parson/parson.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -335,7 +335,7 @@ static JSON_Object *json_object_init (void)
   if (!new_obj)
     return NULL;
   new_obj->names = (char **) NULL;
-  new_obj->values = (JSON_Value * *) NULL;
+  new_obj->values = (JSON_Value **) NULL;
   new_obj->capacity = 0;
   new_obj->count = 0;
   return new_obj;
@@ -383,7 +383,7 @@ static JSON_Status json_object_resize (JSON_Object *object, size_t new_capacity)
   if (temp_names == NULL)
     return JSONFailure;
 
-  temp_values = (JSON_Value **) parson_malloc (new_capacity * sizeof (JSON_Value * ));
+  temp_values = (JSON_Value **) parson_malloc (new_capacity * sizeof (JSON_Value *));
   if (temp_names == NULL)
     {
       parson_free (temp_names);
@@ -393,7 +393,7 @@ static JSON_Status json_object_resize (JSON_Object *object, size_t new_capacity)
   if (object->names != NULL && object->values != NULL && object->count > 0)
     {
       memcpy (temp_names, object->names, object->count * sizeof (char *));
-      memcpy (temp_values, object->values, object->count * sizeof (JSON_Value * ));
+      memcpy (temp_values, object->values, object->count * sizeof (JSON_Value *));
     }
   parson_free (object->names);
   parson_free (object->values);
@@ -435,7 +435,7 @@ static JSON_Array *json_array_init (void)
   JSON_Array *new_array = (JSON_Array *) parson_malloc (sizeof (JSON_Array));
   if (!new_array)
     return NULL;
-  new_array->items = (JSON_Value * *) NULL;
+  new_array->items = (JSON_Value **) NULL;
   new_array->capacity = 0;
   new_array->count = 0;
   return new_array;
@@ -463,14 +463,14 @@ static JSON_Status json_array_resize (JSON_Array *array, size_t new_capacity)
     {
       return JSONFailure;
     }
-  new_items = parson_malloc (new_capacity * sizeof (JSON_Value * ));
+  new_items = parson_malloc (new_capacity * sizeof (JSON_Value *));
   if (new_items == NULL)
     {
       return JSONFailure;
     }
   if (array->items != NULL && array->count > 0)
     {
-      memcpy (new_items, array->items, array->count * sizeof (JSON_Value * ));
+      memcpy (new_items, array->items, array->count * sizeof (JSON_Value *));
     }
   parson_free (array->items);
   array->items = new_items;

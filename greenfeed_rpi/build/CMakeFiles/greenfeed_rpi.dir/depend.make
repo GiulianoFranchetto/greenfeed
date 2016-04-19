@@ -21,5 +21,6 @@ CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/modbus/modbus-rtu.h
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/modbus/modbus-tcp.h
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/modbus/modbus-version.h
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/modbus/modbus.h
+CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/parson/parson.h
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../main.cpp
 
