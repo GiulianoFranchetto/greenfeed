@@ -153,10 +153,15 @@ static int understand_upstream_packet(upstream_packet packet) {
                 down_packet.i_polarization = false;
                 down_packet.power = 14;
                 down_packet.data = malloc(18);
-                if (result->document != NULL)
-                    strcpy(down_packet.data, "{\"authorize\": 1}");
-                else
+                if (result->document != NULL) {
+                    JSON_Value *result_value = json_parse_string(result->document);
+                    JSON_Object *result_object = json_value_get_object(result_value);
+                    sprintf(down_packet.data, "{\"authorize\": 1, \"velo\": %d}", (int)json_object_get_number(result_object, "bike_id"));
+                    json_value_free(result_value);
+                }
+                else {
                     strcpy(down_packet.data, "{\"authorize\": 0}");
+                }
                 down_packet.payload_size = 17;
 
                 send_downstream_message(down_sock, from, sizeof(struct sockaddr_in), down_packet, true);
