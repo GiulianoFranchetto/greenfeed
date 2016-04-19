@@ -9,7 +9,11 @@ CMakeFiles/greenfeed_rpi.dir/Regulateur.cpp.o: ../includes/modbus/modbus.h
 CMakeFiles/greenfeed_rpi.dir/Regulateur.cpp.o: ../Regulateur.cpp
 
 CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.o: ../includes/UsbComm.h
+CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.o: ../includes/base64.h
 CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.o: ../UsbComm.cpp
+
+CMakeFiles/greenfeed_rpi.dir/base64.cpp.o: ../includes/base64.h
+CMakeFiles/greenfeed_rpi.dir/base64.cpp.o: ../base64.cpp
 
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/Regulateur.h
 CMakeFiles/greenfeed_rpi.dir/main.cpp.o: ../includes/UsbComm.h

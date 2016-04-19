@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yocto/Desktop/greenfeed_rpi
+CMAKE_SOURCE_DIR = /home/yocto/Desktop/greenfeed/greenfeed_rpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed_rpi/build
+CMAKE_BINARY_DIR = /home/yocto/Desktop/greenfeed/greenfeed_rpi/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed_rpi/build/CMakeFiles /home/yocto/Desktop/greenfeed_rpi/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed_rpi/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yocto/Desktop/greenfeed/greenfeed_rpi/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ UsbComm.cpp.s:
 	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/UsbComm.cpp.s
 .PHONY : UsbComm.cpp.s
 
+base64.o: base64.cpp.o
+
+.PHONY : base64.o
+
+# target to build an object file
+base64.cpp.o:
+	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/base64.cpp.o
+.PHONY : base64.cpp.o
+
+base64.i: base64.cpp.i
+
+.PHONY : base64.i
+
+# target to preprocess a source file
+base64.cpp.i:
+	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/base64.cpp.i
+.PHONY : base64.cpp.i
+
+base64.s: base64.cpp.s
+
+.PHONY : base64.s
+
+# target to generate assembly for a file
+base64.cpp.s:
+	$(MAKE) -f CMakeFiles/greenfeed_rpi.dir/build.make CMakeFiles/greenfeed_rpi.dir/base64.cpp.s
+.PHONY : base64.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... UsbComm.o"
 	@echo "... UsbComm.i"
 	@echo "... UsbComm.s"
+	@echo "... base64.o"
+	@echo "... base64.i"
+	@echo "... base64.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

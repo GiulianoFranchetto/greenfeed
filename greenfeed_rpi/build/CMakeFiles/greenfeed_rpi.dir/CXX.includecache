@@ -40,6 +40,10 @@ pthread.h
 unistd.h
 -
 
+../includes/base64.h
+string
+-
+
 ../includes/modbus/modbus-rtu.h
 modbus.h
 ../includes/modbus/modbus.h
@@ -70,23 +74,35 @@ modbus-tcp.h
 modbus-rtu.h
 ../includes/modbus/modbus-rtu.h
 
-/home/yocto/Desktop/greenfeed_rpi/Regulateur.cpp
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/Regulateur.cpp
 Regulateur.h
 -
 string.h
 -
 unistd.h
 -
-
-/home/yocto/Desktop/greenfeed_rpi/UsbComm.cpp
-UsbComm.h
+iostream
+-
+errno.h
+-
+stdlib.h
 -
 
-/home/yocto/Desktop/greenfeed_rpi/main.cpp
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/UsbComm.cpp
+UsbComm.h
+-
+base64.h
+-
+
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/base64.cpp
+base64.h
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/base64.h
+iostream
+-
+
+/home/yocto/Desktop/greenfeed/greenfeed_rpi/main.cpp
 UsbComm.h
 -
 Regulateur.h
--
-unistd.h
 -
 
