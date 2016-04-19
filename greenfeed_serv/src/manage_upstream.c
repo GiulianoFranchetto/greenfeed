@@ -180,7 +180,7 @@ void *manage_upstream(void *r) {
     struct sockaddr_in sin = {0}, from = {0};
     SOCKET sock;
     iot_push_data push_data = {{0}};
-    socklen_t incomming_size = 0;
+    socklen_t incoming_size = 0;
 
     printf("Lauching new worker: manage the upstream.\n");
     printf("Creating udp socket on port 3001.\n");
@@ -205,7 +205,7 @@ void *manage_upstream(void *r) {
 
     while (!stop_thread_upstream) {
 
-        while (recvfrom(sock, push_data.msg, sizeof(push_data.msg) - 1, 0, (struct sockaddr *) &from, &incomming_size) <
+        while (recvfrom(sock, push_data.msg, sizeof(push_data.msg) - 1, 0, (struct sockaddr *) &from, &incoming_size) <
                0) {
             printf("Error when receiving upstream message (err %d). This is error %d over %d\n", errno,
                    upstream_error++, MAX_UPSTREAM_ERROR);
@@ -215,7 +215,7 @@ void *manage_upstream(void *r) {
             }
         }
         printf("Sending ACK to IoT station\n");
-        if (0 > send_push_ack(sock, push_data, from, incomming_size)) {
+        if (0 > send_push_ack(sock, push_data, from, incoming_size)) {
             printf("Error when sending ACK to IoT station\n");
         }
         printf("New message received from the IoT station (%d.%d.%d.%d)\n",
