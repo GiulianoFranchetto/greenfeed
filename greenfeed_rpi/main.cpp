@@ -77,7 +77,10 @@ int main (int arcg, char **argv)
 
           if (usb_can.recevoirMessage (mess_from_can) > 0)
             {
-              usb_lora.envoyerMessage (mess_from_can, true);
+              cout << "Message from CAN" << mess_from_can << endl;
+              char message_booking[200];
+              sprintf(message_booking, "{\"demande\":{\"uid\":\"%s\"}}", mess_from_can);
+              usb_lora.envoyerMessage (message_booking, true);
             }
 
           free (mess_from_can);
