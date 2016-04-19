@@ -46,58 +46,57 @@ using namespace std;
     \brief Cette classe regroupe toutes les fonctions haut niveau afin d'ouvrir une communication USB entre deux appareils et envoyer des
     donn�es
 */
-class UsbComm
-{
-    public:
-        /*!
-           \brief Constructeur par d�faut
+class UsbComm {
+ public:
+  /*!
+     \brief Constructeur par d�faut
 
-           Constructeur par d�faut de la classe UsbComm
-         */
-        UsbComm();
+     Constructeur par d�faut de la classe UsbComm
+   */
+  UsbComm ();
 
-         /*!
-            \brief Ouvre la communication en USB
+  /*!
+     \brief Ouvre la communication en USB
 
-            Cette m�thode initialise la communication en USB
+     Cette m�thode initialise la communication en USB
 
-            \param const string phy_interface : l'interface physique de l'USB (classiquement /dev/ttyACM0)
-            \return 0 si tout va bien,
-            -1 sinon
-         */
-        usb_r ouvrirCommunication(const string);
+     \param const string phy_interface : l'interface physique de l'USB (classiquement /dev/ttyACM0)
+     \return 0 si tout va bien,
+     -1 sinon
+  */
+  usb_r ouvrirCommunication (const string);
 
-         /*!
-            \brief Envoie une donn�e en USB
+  /*!
+     \brief Envoie une donn�e en USB
 
-            Cette m�thode envoie une donn�e en USB. Si le message n'est pas termin� par "\n", alors ce caract�re
-            est rajouter automatiquement.
+     Cette m�thode envoie une donn�e en USB. Si le message n'est pas termin� par "\n", alors ce caract�re
+     est rajouter automatiquement.
 
-            \param char* message : le message � envoyer
-            \param bool changeInB64 : if set to true, the char* in parameter will be converted to Base64 string
-            \return 0 si tout va bien,
-            -1 sinon
-         */
-        usb_r envoyerMessage(char*, bool);
+     \param char* message : le message � envoyer
+     \param bool changeInB64 : if set to true, the char* in parameter will be converted to Base64 string
+     \return 0 si tout va bien,
+     -1 sinon
+  */
+  usb_r envoyerMessage (char *, bool);
 
-        /*!
-            \brief Re�oit une donn�e en USB
+  /*!
+      \brief Re�oit une donn�e en USB
 
-            \param char* message : buffer dans lequel le message sera mis
-            \return 0 si rien n'a �t� lu,
-            -1 si erreur
-         */
-        usb_r recevoirMessage(char*);
+      \param char* message : buffer dans lequel le message sera mis
+      \return 0 si rien n'a �t� lu,
+      -1 si erreur
+   */
+  usb_r recevoirMessage (char *);
 
-        /*!
-           \brief Destructeur de la classe UsbComm
+  /*!
+     \brief Destructeur de la classe UsbComm
 
-           Cette m�thode d�truit l'objet UsbComm, ferme la connexion USB et lib�re la m�moire.
-         */
-        virtual ~UsbComm();
-    protected:
-    private:
-        usb_interface interface; /*!< Le fichier repr�sentant la connection USB*/
+     Cette m�thode d�truit l'objet UsbComm, ferme la connexion USB et lib�re la m�moire.
+   */
+  virtual ~UsbComm ();
+ protected:
+ private:
+  usb_interface interface; /*!< Le fichier repr�sentant la connection USB*/
 };
 
 #endif // USBCOMM_H

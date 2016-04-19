@@ -1,5 +1,6 @@
 #include <UsbComm.h>
 #include <Regulateur.h>
+#include <parson/parson.h>
 
 using namespace std;
 
@@ -8,6 +9,8 @@ UsbComm usb_can;
 Regulateur regulateur;
 pthread_t thread_MPPT;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
 void *envoi_MPPT_LoRa (NOTHING)
 {
   char buffer[100];
@@ -33,6 +36,7 @@ void *envoi_MPPT_LoRa (NOTHING)
       sleep (60 * 15);
     }
 }
+#pragma clang diagnostic pop
 
 int main (int arcg, char **argv)
 {
@@ -71,7 +75,18 @@ int main (int arcg, char **argv)
           if (usb_lora.recevoirMessage (mess_from_lora) > 0)
             {
               cout << "Message from LoRa gateway: " << mess_from_lora << endl;
-              usb_can.envoyerMessage (mess_from_lora, false);
+              JSON_Value *root_value = json_parse_string (mess_from_lora);
+              JSON_Object *root_object = json_value_get_object (root_value);
+              int authorized = (int) json_object_get_number (root_object, "authorize");
+              if (authorized)
+                {
+                  char buf[4];
+                  int velo = (int) json_object_get_number (root_object, "bike_id");
+                  sprintf (buf, "1;%d", velo);
+                  cout << "Sending " << buf << " to Arduino CAN" << endl;
+                  usb_can.envoyerMessage (buf, false);
+                }
+              json_value_free (root_value);
             }
           free (mess_from_lora);
 
@@ -79,7 +94,7 @@ int main (int arcg, char **argv)
             {
               cout << "Message from CAN" << mess_from_can << endl;
               char message_booking[200];
-              sprintf(message_booking, "{\"demande\":{\"uid\":\"%s\"}}", mess_from_can);
+              sprintf (message_booking, "{\"demande\":{\"uid\":\"%s\"}}", mess_from_can);
               usb_lora.envoyerMessage (message_booking, true);
             }
 

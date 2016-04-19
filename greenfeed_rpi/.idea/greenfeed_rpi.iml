@@ -3,11 +3,13 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/base64.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Regulateur.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/parson.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UsbComm.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/includes/base64.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/includes/parson/parson.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/includes/Regulateur.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/includes/UsbComm.h" isTestSource="false" />
     </content>
@@ -17,13 +19,19 @@
         <CLASSES>
           <root url="file:///usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/include" />
           <root url="file:///usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
           <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
           <root url="file:///usr/arm-linux-gnueabihf/include" />
         </CLASSES>
         <SOURCES>
           <root url="file:///usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/include" />
           <root url="file:///usr/lib/gcc-cross/arm-linux-gnueabihf/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
           <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
           <root url="file:///usr/arm-linux-gnueabihf/include" />
         </SOURCES>
       </library>

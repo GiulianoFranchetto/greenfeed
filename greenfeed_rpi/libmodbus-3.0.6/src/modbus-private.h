@@ -65,7 +65,7 @@ MODBUS_BEGIN_DECLS
 #define _FC_WRITE_AND_READ_REGISTERS  0x17
 
 typedef enum {
-    _MODBUS_BACKEND_TYPE_RTU=0,
+    _MODBUS_BACKEND_TYPE_RTU = 0,
     _MODBUS_BACKEND_TYPE_TCP
 } modbus_bakend_type_t;
 
@@ -114,11 +114,11 @@ struct _modbus {
     void *backend_data;
 };
 
-void _modbus_init_common(modbus_t *ctx);
-void _error_print(modbus_t *ctx, const char *context);
+void _modbus_init_common (modbus_t *ctx);
+void _error_print (modbus_t *ctx, const char *context);
 
 #ifndef HAVE_STRLCPY
-size_t strlcpy(char *dest, const char *src, size_t dest_size);
+size_t strlcpy (char *dest, const char *src, size_t dest_size);
 #endif
 
 MODBUS_END_DECLS
