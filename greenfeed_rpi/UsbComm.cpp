@@ -32,7 +32,7 @@ usb_r UsbComm::envoyerMessage (char *mess, bool changeInB64)
   usb_r result = 0;
   string encoded;
   if (changeInB64)
-    encoded = base64_encode (reinterpret_cast<const unsigned char *>(mess), (unsigned int)strlen (mess));
+    encoded = base64_encode (reinterpret_cast<const unsigned char *>(mess), (unsigned int) strlen (mess));
   else
     encoded = mess;
   cout << "Sending " << encoded << endl;
