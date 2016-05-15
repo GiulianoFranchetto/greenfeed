@@ -2,7 +2,7 @@
 #include <mcp_can_dfs.h>
 #include <SPI.h>
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 #define print_debug(message, ...)            Serial.print(message, ##__VA_ARGS__)
@@ -47,7 +47,8 @@ uint8_t a[8];
 void loop()
 {
     byte borneID;
-    uint8_t len = 0, buf[8];
+    uint8_t len = 0;
+    byte buf[8];
     String inputString;
     boolean string_presente = false;
     
@@ -57,17 +58,23 @@ void loop()
         INT32U id = CAN.getCanId();
         print_debug("New message with command ");
         println_debug(id, HEX);
-        
-        for(int i = 0; i<len; i++)
-        {
-            print_debug(buf[i], HEX);
-            print_debug("  ");
+
+        if(id == 0x49) {
+          for(int i = 0; i<len; i++)
+          {
+            if(i > 1 && i < 5){
+              print_debug(buf[len - i - 2], HEX);
+              print_debug("  ");
+                #ifndef DEBUG
+                Serial.print(buf[len - i - 2], HEX);
+                #endif
+             }
+           }
+            Serial.println();
         }
         println_debug();
+    
         
-        if(id == 0x49) {
-            Serial.println(buf+1);
-        }
     }
     
     while (Serial.available() > 0 ) {
@@ -85,7 +92,16 @@ void loop()
         /* Message 1: authorized */
         if(inputString.charAt(0) == '1'){
             uint8_t fake_name[8] = {0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01};
-            CAN.sendMsgBuf(createSID(num,0x0F), 0, num, 8, fake_name);
+            //CAN.sendMsgBuf(createSID(num,0x0F), 0, num, 8, fake_name);
+            uint8_t vertON[1] = {1};
+            uint8_t vertOFF[1] = {0};
+            CAN.sendMsgBuf(createSID(num,0x07), 0, num, 0, 0);
+            int index;
+            for(index=0; index < 10; index++){
+              CAN.sendMsgBuf(createSID(num,0x0D), 0, num, 1, vertOFF);
+              delay(500);
+              CAN.sendMsgBuf(createSID(num,0x0D), 0, num, 1, vertON);
+            }
         }
         /* Message 2: get parameters */
         else if(inputString.charAt(0) == '2'){
